@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "b8a62b8136bfc930d755172e7e17ecd2daa2dca0247cc5ca6cf8635deb7017fc",
+  "duration_seconds": 7.0,
+  "segments": [
+    {
+      "speaker": "Zenny",
+      "text": "Hooray! Crystal power! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "9184909b962026337bf8fdc015ba3a58f586accd7b1228f0bfba26517949adea",
+      "start_seconds": 0.5,
+      "end_seconds": 5.7
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.3,
+  "approved": false
+}

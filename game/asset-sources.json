@@ -1,0 +1,141 @@
+{
+  "portraits": {
+    "keen": {
+      "url": "https://drive.google.com/file/d/1pMT7ik6FvWkTqWs14GOUwElL9BUW1D66/view?usp=drivesdk",
+      "usage": "Racer selection portrait cropped from supplied character reference sheet"
+    },
+    "aida": {
+      "url": "https://drive.google.com/file/d/1NZLtuRqfmlkDdEui1D8y4H1esxeKjQml/view?usp=drivesdk",
+      "usage": "Racer selection portrait cropped from supplied character reference sheet"
+    },
+    "sunny": {
+      "url": "https://drive.google.com/file/d/1T21zZRmf0QbDmip6dZkwTsZA2W_DXb1q/view?usp=drivesdk",
+      "usage": "Racer selection portrait cropped from supplied character reference sheet"
+    },
+    "misty": {
+      "url": "https://drive.google.com/file/d/1sTVzbB-38ptoG04wrGrOFdRByhUt5tUO/view?usp=drivesdk",
+      "usage": "Racer selection portrait cropped from supplied character reference sheet"
+    },
+    "amie": {
+      "url": "https://drive.google.com/file/d/1QGDBMqj5jUsgJJjqvs0mIo6HtGJVEZ9P/view?usp=drivesdk",
+      "usage": "Racer selection portrait cropped from supplied character reference sheet"
+    },
+    "howey": {
+      "url": "https://drive.google.com/file/d/1xLCctxmdf3rJF0BLEfMZPRYvNvhvlUgV/view?usp=drivesdk",
+      "usage": "Racer selection portrait cropped from supplied character reference sheet"
+    },
+    "luna": {
+      "url": "https://drive.google.com/file/d/1ronC6VwPJ_4UkrzPi373HWHRuygyE64V/view?usp=drivesdk",
+      "usage": "Racer selection portrait cropped from supplied character reference sheet"
+    },
+    "fuzzby": {
+      "url": "https://drive.google.com/file/d/1Deksy-xesBFKzuxhOr-SNzTC9gg7VAzp/view",
+      "usage": "Racer portrait cropped from supplied bee character reference sheet"
+    },
+    "zenny": {
+      "url": "https://drive.google.com/file/d/17gGBoVQlvVn3XK4V2SNus9_8TuToNJt1/view",
+      "usage": "Racer portrait cropped from supplied bee character reference sheet"
+    }
+  },
+  "music": {
+    "source": "Julian Jenkins - Crystal Karting.mp3",
+    "usage": "Unmodified supplied racing track, looping during play"
+  },
+  "crystalTraits": {
+    "source": "Character Bible Nov 25.pdf",
+    "page": 9,
+    "skills": "Game adaptations of the established crystal/trait pairings"
+  },
+  "models": {
+    "source": "CrystalBears_Browser_Game_Models.zip",
+    "characters": [
+      "aida",
+      "amie",
+      "fuzzby",
+      "howey",
+      "keen",
+      "luna",
+      "misty",
+      "sunny",
+      "zenny"
+    ],
+    "usage": "Supplied GLB geometry and textures, shared display scale with raised seats for the bees. No rig or animation clips included."
+  },
+  "victory_voices": {
+    "provider": "ElevenLabs",
+    "model": "eleven_v3",
+    "recordings": {
+      "keen": {
+        "voice_id": "TCRj5m2u9xhZHJ8h9pMv",
+        "line": "Woohoo! Aquamarine courage! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 3.866122,
+        "audio": "assets/voices/keen-victory.mp3"
+      },
+      "aida": {
+        "voice_id": "SHuZ9GyczU4QEDzU4QU4",
+        "line": "Hooray! Rose quartz confidence! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 5.250612,
+        "audio": "assets/voices/aida-victory-approved.mp3"
+      },
+      "sunny": {
+        "voice_id": "BJG9bw7cUqGsIzkR556J",
+        "line": "Woohoo! Citrine joy! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 5.250612,
+        "audio": "assets/voices/sunny-victory.mp3"
+      },
+      "misty": {
+        "voice_id": "Yj7sxjH2wQmzIjjKXnDy",
+        "line": "Yay! Moonstone trust! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 4.832653,
+        "audio": "assets/voices/misty-victory.mp3"
+      },
+      "amie": {
+        "voice_id": "6lbKISvTuKILAwhNIepr",
+        "line": "Hooray! Amethyst understanding! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 4.832653,
+        "audio": "assets/voices/amie-victory.mp3"
+      },
+      "howey": {
+        "voice_id": "rXUAKUHFzRwd8mYd3oLz",
+        "line": "Hooray! Howlite kindness! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 3.970612,
+        "audio": "assets/voices/howey-victory.mp3"
+      },
+      "luna": {
+        "voice_id": "gqDyJgCTCxcTOzggXvmS",
+        "line": "Yay! Lepidolite calm! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 4.205714,
+        "audio": "assets/voices/luna-victory.mp3"
+      },
+      "fuzzby": {
+        "voice_id": "DNK8oCkkHjIyEjzlCeQq",
+        "line": "Woohoo! Crystal power! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 4.284082,
+        "audio": "assets/voices/fuzzby-victory.mp3"
+      },
+      "zenny": {
+        "voice_id": "XEiPrIitaegdirIGkODX",
+        "line": "Hooray! Crystal power! That really helped me win!",
+        "model": "eleven_v3",
+        "duration": 5.250612,
+        "audio": "assets/voices/zenny-victory.mp3"
+      }
+    },
+    "approved_mapping": "docs/approved-character-voices.json"
+  },
+  "scenery": {
+    "great-oak": {
+      "url": "https://drive.google.com/file/d/1rzWN5o26OrFBVKL9_rHUEd0Z_L1pbMAK/view",
+      "local": "public/assets/great-oak.jpg",
+      "usage": "Unmodified supplied Scenary Great Oak image as garage background; canopy lighting reference for realtime circuit"
+    }
+  }
+}

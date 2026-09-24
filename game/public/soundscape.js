@@ -1,0 +1,22 @@
+import {CHARACTER_LAUGHS,CHARACTER_REACTIONS} from './character-laughs.js?v=75';
+const REACTIONS=Object.fromEntries([...Object.entries(CHARACTER_LAUGHS).map(([id,url])=>['laugh:'+id,url]),...Object.entries(CHARACTER_REACTIONS).flatMap(([id,clips])=>Object.entries(clips).map(([kind,url])=>[kind+':'+id,url]))]);
+export const COURSE_AMBIENCE={wood:['woodland'],river:['woodland','water'],night:['night'],honey:['meadow'],moon:['night','water'],coast:['coast'],rose:['meadow'],blossom:['woodland','meadow'],zen:['water','woodland'],cove:['coast','water'],showcase:['coast','woodland']};
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+export class Soundscape{
+ constructor(audio){this.audio=audio;this.buffers=new Map();this.loading=new Map();this.loops=new Map();this.oneShots=new Set();this.active=false;this.lastReaction=-Infinity;}
+ async load(name){if(this.buffers.has(name))return this.buffers.get(name);if(!this.loading.has(name))this.loading.set(name,(async()=>{const r=await fetch((REACTIONS[name]||'assets/sfx/'+name+'.mp3'));if(!r.ok)throw Error('Sound unavailable');const b=await this.audio.context.decodeAudioData(await r.arrayBuffer());this.buffers.set(name,b);return b;})().catch(()=>null).finally(()=>this.loading.delete(name)));return this.loading.get(name);}
+ start(){this.active=true;const c=this.audio.context;if(!c?.decodeAudioData||!this.audio.sfxEnabled)return;this.course=new URLSearchParams(globalThis.location?.search||'').get('track')||'wood';this.ambience=COURSE_AMBIENCE[this.course]||COURSE_AMBIENCE.wood;
+ for(const name of [...this.ambience,'rain','engine',...Object.keys(REACTIONS)])this.load(name).then(buffer=>{if(!buffer||!this.active||!this.audio.sfxEnabled)return;if(REACTIONS[name])return;this.loop(name,buffer);if(name==='engine')for(let i=0;i<3;i++)this.loop('rival'+i,buffer);this.update(this.state||{});});
+ }
+ loop(name,buffer){if(this.loops.has(name))return;const c=this.audio.context,src=c.createBufferSource(),gain=c.createGain(),pan=c.createStereoPanner();src.buffer=buffer;src.loop=true;gain.gain.value=0;src.connect(gain);gain.connect(pan);pan.connect(this.audio.master);src.start();this.loops.set(name,{src,gain,pan});}
+ set(name,volume,rate=1,pan=0){const n=this.loops.get(name);if(!n)return;const now=this.audio.context.currentTime;n.gain.gain.setTargetAtTime(volume,now,.1);n.src.playbackRate.setTargetAtTime(rate,now,.12);n.pan.pan.setTargetAtTime(pan,now,.12);}
+ update(state={}){this.state=state;if(!this.active||!this.audio.sfxEnabled||!this.audio.context)return;const {speed=0,throttle=false,brake=false,drift=false,wetness=0,airborne=false,player,bots=[],length=1}=state;const v=clamp(Math.abs(speed)/40,0,1),duck=(this.audio.guideClip||this.audio.victory?.paused===false)? .35:1;
+ this.set('engine',(.09+v*.1+(throttle?.035:0))*duck,.65+v*1.2+(throttle?.12:0));
+ for(const name of this.ambience||[])this.set(name,.22*(1-wetness*.65)*duck/(this.ambience.length===2?1.3:1));this.set('rain',wetness*.22*duck);
+ if(player){const rivals=bots.map(r=>({r,ds:((r.s-player.s+length/2)%length+length)%length-length/2})).filter(x=>Math.abs(x.ds)<45).sort((a,b)=>Math.abs(a.ds)-Math.abs(b.ds));for(let i=0;i<3;i++){const b=rivals[i];this.set('rival'+i,b?.r.speed>2?.10*(1-Math.abs(b.ds)/45)*duck:0,b?.r?.speed? .65+Math.abs(b.r.speed)/40:1,b?clamp(-(b.r.lane-player.lane)/10,-1,1):0);}}
+ const now=this.audio.context.currentTime;
+ if(now>(this.nextRoad||0)&&v>.08&&!airborne){this.nextRoad=now+.14;this.audio.noise(.19,(drift||brake?.045:.009)*v*duck,drift?1800:wetness>0?1000:450,drift?900:250,'bandpass');}
+ }
+ reaction(characterId,kind='laugh'){const c=this.audio.context;if(!this.active||!this.audio.sfxEnabled||!c||c.currentTime-this.lastReaction<6||this.oneShots.size||this.audio.guideClip||this.audio.victory?.paused===false)return;const buffer=this.buffers.get(kind+':'+characterId);if(!buffer)return;this.lastReaction=c.currentTime;const src=c.createBufferSource(),gain=c.createGain();src.buffer=buffer;src.playbackRate.value=1;gain.gain.value=.4;src.connect(gain);gain.connect(this.audio.master);const item={src,gain};this.oneShots.add(item);src.onended=()=>{src.disconnect();gain.disconnect();this.oneShots.delete(item);};src.start();}
+ stop(){this.active=false;for(const n of this.loops.values()){n.src.stop();n.src.disconnect();n.gain.disconnect();n.pan.disconnect();}this.loops.clear();for(const n of this.oneShots){n.src.stop();n.src.disconnect();n.gain.disconnect();}this.oneShots.clear();this.state={};}
+}

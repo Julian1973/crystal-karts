@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {Soundscape,COURSE_AMBIENCE} from '../public/soundscape.js';
+const param=()=>({value:0,setTargetAtTime(v){this.value=v;}});
+let started=0,stopped=0;
+const node=()=>({gain:param(),pan:param(),playbackRate:param(),connect(){},disconnect(){},start(){started++;},stop(){stopped++;}});
+const context={currentTime:10,decodeAudioData:async()=>({}),createBufferSource:node,createGain:node,createStereoPanner:node};
+globalThis.fetch=async()=>new Response(new Uint8Array([1]));
+globalThis.location={search:'?track=river'};
+const owner={context,master:{},sfxEnabled:true,noise(){}};
+const sound=new Soundscape(owner);sound.start();await new Promise(r=>setImmediate(r));
+assert.equal(Object.keys(COURSE_AMBIENCE).length,11);assert.equal(sound.loops.size,7);
+sound.update({speed:35,throttle:true,wetness:1,player:{s:0,lane:0},bots:[{s:4,lane:5,speed:30}],length:900});
+assert(sound.loops.get('engine').src.playbackRate.value>1);assert(sound.loops.get('rain').gain.gain.value>0);assert(sound.loops.get('rival0').pan.pan.value<0);
+sound.reaction('missing');assert.equal(sound.oneShots.size,0,'no generic voice fallback');sound.buffers.set('laugh:keen',{});sound.reaction('keen');sound.reaction('keen');assert.equal(sound.oneShots.size,1,'reaction cooldown prevents chatter');
+sound.stop();assert.equal(sound.loops.size,0);assert.equal(sound.oneShots.size,0);assert.equal(started,stopped);
+sound.start();sound.stop();await new Promise(r=>setImmediate(r));assert.equal(sound.loops.size,0,'late loading cannot restart paused sound');
+owner.sfxEnabled=false;sound.start();await new Promise(r=>setImmediate(r));assert.equal(sound.loops.size,0,'muted effects stay silent');
+console.log('Eleven course mappings, engine pitch, wet weather, rival panning, laughter cooldown and stop/mute races passed.');

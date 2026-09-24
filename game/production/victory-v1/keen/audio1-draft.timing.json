@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "9b2ea5db52baaed0472590c3e0b29b05cbb34f2a9f0d2355c9ca15c055596e8f",
+  "duration_seconds": 6.0,
+  "segments": [
+    {
+      "speaker": "Keen",
+      "text": "Woohoo! Aquamarine courage! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "58ee42c97213e7a391db7008fcff51ae375d05af2dc160ba7ed224920d0da173",
+      "start_seconds": 0.5,
+      "end_seconds": 4.34
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.66,
+  "approved": false
+}

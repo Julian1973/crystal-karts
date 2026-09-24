@@ -1,0 +1,11 @@
+{
+  "duration_seconds": 6,
+  "segments": [
+    {
+      "path": "source.wav",
+      "start_seconds": 0.5,
+      "speaker": "Keen",
+      "text": "Woohoo! Aquamarine courage! That really helped me win!"
+    }
+  ]
+}

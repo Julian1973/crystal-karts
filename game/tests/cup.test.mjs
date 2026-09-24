@@ -1,0 +1,3 @@
+import assert from 'node:assert/strict';
+import {newCup,scoreRound,standings,validCup} from '../public/cup.js';
+const c=newCup(7),first=[0,1,2,3,4,5,6,7,8];scoreRound(c,first);scoreRound(c,first);assert.equal(c.results.length,1);assert.equal(standings(c)[0].points,15);c.round=1;scoreRound(c,[1,0,2,3,4,5,6,7,8]);assert.equal(standings(c)[0].ci,1);assert.equal(standings(c)[0].points,27);assert(validCup(JSON.parse(JSON.stringify(c))));assert(!validCup({...c,bear:99}));assert.throws(()=>scoreRound(newCup(0),Array(9).fill(0)));console.log('Passed: two-round scoring, duplicate finish protection, tiebreak and saved state validation');

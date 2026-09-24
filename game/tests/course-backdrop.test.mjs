@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import * as T from '../public/assets/three.module.js';
+import {loadCourseBackdrop,applyCourseBackdrop} from '../public/course-backdrop.js';
+let closed=0,calls=0,fail=true;
+globalThis.fetch=async()=>{calls++;if(fail)return new Response('',{status:503});return new Response('image');};
+globalThis.createImageBitmap=async(blob,options)=>({width:options.resizeWidth||6336,height:options.resizeHeight||2688,close(){closed++;}});
+await assert.rejects(loadCourseBackdrop('wood'));
+fail=false;
+const texture=await loadCourseBackdrop('wood');
+assert.equal(calls,2);assert.equal(closed,1);assert.equal(texture.image.width,4096);
+assert.equal(texture.image.height,1738);
+assert.equal(await loadCourseBackdrop('wood'),texture);
+await assert.rejects(loadCourseBackdrop('../invalid'));
+const scene=new T.Scene(),sky=new T.Mesh(new T.SphereGeometry(),new T.MeshBasicMaterial());
+sky.name='race-sky';scene.add(sky);applyCourseBackdrop(scene,texture,'wood');
+assert.equal(sky.userData.courseBackdrop,'wood');assert.equal(sky.material.map,texture);
+assert.equal(sky.material.depthWrite,false);assert.equal(sky.material.fog,false);
+console.log('Backdrop retry, cache, GPU size cap and sky integration passed.');

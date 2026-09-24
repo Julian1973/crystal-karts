@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "d4dd128d262af67bb2f3d2c7349d8082c1a936114305471124db3ce1a16900e1",
+  "duration_seconds": 7.0,
+  "segments": [
+    {
+      "speaker": "Aida",
+      "text": "Hooray! Rose quartz confidence! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "001c30e5a47333a2d026bffd4b9a6d4c4ebd608f0d110f5668d8cdf9283f7d2b",
+      "start_seconds": 0.5,
+      "end_seconds": 5.7
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.3,
+  "approved": false
+}

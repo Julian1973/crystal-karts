@@ -1,0 +1,1 @@
+ALTER TABLE `race_rooms` ADD `track` text DEFAULT 'wood' NOT NULL;

@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {createWeather,stepWeather,traction} from '../public/weather.js';
+import {advanceManual} from '../public/physics.js';
+const w=createWeather();stepWeather(w,20,1.19);assert(!w.started);
+stepWeather(w,4,1.2);assert.equal(w.phase,'rain');assert.equal(w.wetness,1);assert.equal(w.rain,1);
+assert(traction(w,true)>traction(w));
+const car=()=>({s:0,lane:0,heading:0,driveSpeed:25,lateralSpeed:6});
+const dry=car(),wet=car();advanceManual(dry,.1,{brake:true,steer:0,traction:1},0);advanceManual(wet,.1,{brake:true,steer:0,traction:traction(w)},0);
+assert(wet.driveSpeed>dry.driveSpeed,'wet stopping distance increases');assert(wet.lateralSpeed>dry.lateralSpeed,'wet kart retains sideways momentum');
+stepWeather(w,18,1.5);assert.equal(w.phase,'drying');assert.equal(w.rain,0);assert(w.wetness>0);
+stepWeather(w,12,1.6);assert.equal(w.phase,'sunny');assert.equal(traction(w),1);
+stepWeather(w,10,1);stepWeather(w,10,2.2);assert.equal(w.rain,0,'cannot retrigger shower');
+assert.equal(createWeather().started,false,'new race resets weather');
+console.log('Passed: one shower, drying after sunshine, wet braking and grip, calm power, restart.');
