@@ -1,3 +1,5 @@
+import {dailyCourse,nextStreak} from './daily.js?v=78';
+const TRACK_NAMES={wood:'Whisper Wood',river:'Crystal River Run',honey:'Honey Hill Circuit',moon:'Moonlight Pool',coast:'Crystal Coast',night:'Starlight Forest Run',rose:'Aida’s Rose Garden',blossom:'Amie’s Blossom Trail',zen:'Zenny’s Lotus Gardens',cove:'Crystal Cove Grand Tour',showcase:'Crystal Bears Showcase'};
 export const SHOP=[
  {id:'paint-lagoon',kind:'paint',name:'Lagoon shimmer',cost:25,color:0x39cde5},{id:'paint-sun',kind:'paint',name:'Sunbeam gold',cost:35,color:0xffc64d},{id:'paint-violet',kind:'paint',name:'Twilight crystal',cost:45,color:0xce8bff},
  {id:'wheels-pearl',kind:'wheels',name:'Pearl wheels',cost:30},{id:'hat-crystal-crown',kind:'hat',name:'Crystal crown',cost:55},{id:'hat-flower',kind:'hat',name:'Flower crown',cost:40},{id:'hat-racing-cap',kind:'hat',name:'Racing cap',cost:35},{id:'hat-bee-antennae',kind:'hat',name:'Bee antennae',cost:30},{id:'horn-bell',kind:'horn',name:'Crystal chime',cost:25},{id:'trail-rainbow',kind:'trail',name:'Rainbow trail',cost:50},
@@ -8,7 +10,8 @@ export function saveProgress(s,storage=globalThis.localStorage){try{storage.setI
 export function awardRace(s,{rank=9,crystals=0}={}){const coins=Math.max(5,10+Math.max(0,Math.floor(crystals))+Math.max(0,9-rank)*2);s.coins+=coins;return coins}
 export function buy(s,id){const item=SHOP.find(x=>x.id===id);if(!item||s.owned.includes(id)||item.gold==='all-shards'||s.coins<item.cost)return false;if(item.gold&&s.cups[item.gold]!=='gold')return false;s.coins-=item.cost;s.owned.push(id);return item;}
 export function equip(s,id){const item=SHOP.find(x=>x.id===id);if(!item||!s.owned.includes(id))return false;s.equipped[item.kind]=id;return true;}
-export function dailyFor(date=new Date()){const stamp=date.toISOString().slice(0,10);const n=[...stamp].reduce((a,c)=>a+c.charCodeAt(0),0)%2;return {date:stamp,id:['win-honey-sunny','collect-crystals'][n],text:['Win on Honey Hill with Sunny','Collect 8 crystal boxes'][n],reward:35};}
-export function completeDaily(s,id,date=new Date()){const d=dailyFor(date);if(id!==d.id||s.daily.date===d.date)return 0;s.daily={date:d.date,done:true};s.coins+=d.reward;return d.reward;}
+// The daily challenge is Today's Crystal Cove (daily.js): one course, bear and goal for everyone.
+export function dailyFor(date=new Date()){const d=dailyCourse(date);return {...d,text:d.title+' · '+d.text+' on '+(TRACK_NAMES[d.track]||d.track)};}
+export function completeDaily(s,id,date=new Date()){const d=dailyFor(date);if(id!==d.id||s.daily.date===d.date)return 0;s.daily={date:d.date,done:true,streak:nextStreak(s.daily,d.date)};s.coins+=d.reward;return d.reward;}
 export function awardShard(s,id){if(!s.shards.includes(id))s.shards.push(id);if(s.shards.length>=11&&!s.owned.includes('golden-kart'))s.owned.push('golden-kart');return s.shards.length;}
 export function cupMedal(points,maximum){const ratio=points/maximum;return ratio>=.66?'gold':ratio>=.34?'silver':'bronze';}
