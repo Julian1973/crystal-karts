@@ -205,6 +205,6 @@ Line 8 (countdown):[excited][fast-paced] Three! Two! One! [giggles] BUZZ-GO!
 
 ## Canon used (confirmed by Julian)
 
-Keen = courage, Amie = joy, Howey = kindness. The Crystal Heart tools follow this:
+Keen = courage, Amie = joy, Howey = kindness, Sunny = optimism. The Crystal Heart tools follow this:
 Keen "Be brave" → "Brave and bright!", Amie "Find the silver lining" → "Let's shine the light!",
 Howey "Be kind to yourself" → "Steady and kind!".

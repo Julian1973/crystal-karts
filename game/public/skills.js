@@ -3,7 +3,7 @@
 export const CRYSTALS={
  keen:{crystal:'Aquamarine',trait:'Courage',color:0x6fefff,symbol:'➜',skill:'Boost',duration:3,description:'An instant forward kick, then three seconds of extra speed.'},
  aida:{crystal:'Rose Quartz',trait:'Confidence',color:0xffa5d0,skill:'Confidence shield',duration:7,description:'Cushion kart bumps and resist being knocked off course.'},
- sunny:{crystal:'Citrine',trait:'Joy',color:0xffd34f,skill:'Joy surge',duration:6,description:'Accelerate faster and keep a little extra speed.'},
+ sunny:{crystal:'Citrine',trait:'Optimism',color:0xffd34f,skill:'Sunshine surge',duration:6,description:'Accelerate faster and keep a little extra speed.'},
  misty:{crystal:'Moonstone',trait:'Trust',color:0xeaf8ff,symbol:'◇',skill:'Phase',duration:4,description:'Drive through rocks and other karts for four seconds. You still steer.'},
  amie:{crystal:'Amethyst',trait:'Joy',color:0xac6bed,symbol:'✦',skill:'Homing crystal',duration:.35,description:'Locks onto a rival and follows them into a spin-out.'},
  howey:{crystal:'Howlite',trait:'Kindness',color:0xf9f3e7,skill:'Kindness lift',duration:6,description:'Give yourself and a nearby bear quicker acceleration.'},
