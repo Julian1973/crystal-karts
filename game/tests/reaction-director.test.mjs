@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {reactionManifest,reactionAllowed,pickReaction} from '../public/reaction-director.js';
+const m=reactionManifest({keen:{ouch:['a.mp3','b.mp3'],laugh:'c.mp3'},whoops:{aida:'d.mp3'},bogus:{sing:'x.mp3'},'Bad Id':{ouch:'y.mp3'}});
+assert.deepEqual(m.takes['ouch:keen'],['ouch:keen:0','ouch:keen:1']);assert.equal(m.urls['whoops:aida:0'],'d.mp3');
+assert.equal(Object.keys(m.urls).length,4,'unknown kinds and malformed ids are ignored');
+const merged=reactionManifest({keen:{ouch:'a.mp3'}},m);assert.equal(merged.takes['ouch:keen'].length,2,'duplicate URLs are not added twice');
+const picks=new Set();for(let i=0;i<6;i++)picks.add(pickReaction(m,'keen','ouch',null,()=>0));assert.equal(picks.size,2,'consecutive picks avoid repeating a take');
+assert.equal(pickReaction(m,'keen','ouch',new Map()),null,'unloaded clips stay silent');assert.equal(pickReaction(m,'luna','ouch'),null,'missing bear stays silent');
+const log=[{id:'keen',at:10}];
+assert.equal(reactionAllowed(log,'aida',12),false,'global gap');assert.equal(reactionAllowed(log,'aida',16.1),true);assert.equal(reactionAllowed(log,'keen',16.1),false,'per-bear gap');assert.equal(reactionAllowed(log,'keen',22.1),true);
+assert.equal(reactionAllowed(log,'aida',10.5,{reply:true}),true,'reply inside window');assert.equal(reactionAllowed(log,'keen',10.5,{reply:true}),false,'cannot reply to yourself');assert.equal(reactionAllowed(log,'aida',11.5,{reply:true}),false,'reply window closes');
+assert.equal(reactionAllowed([],'aida',0,{busy:true}),false,'never talks over a playing line');
+console.log('Reaction manifest, take rotation, silence without recordings, global/per-bear throttles and reply beats passed.');

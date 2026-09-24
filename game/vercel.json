@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm install --omit=dev",
+  "buildCommand": "node scripts/vercel-check.mjs",
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/handler?__path=:path*" }
+  ],
+  "functions": {
+    "api/handler.js": { "includeFiles": "{drizzle,worker}/**", "maxDuration": 10 }
+  },
+  "headers": [
+    { "source": "/(.*)\\.(js|mjs|css|html)", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }
+  ]
+}

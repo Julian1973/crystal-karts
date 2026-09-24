@@ -25,9 +25,11 @@ events.deviceorientation({beta:0,gamma:65});assert.equal(m.read().brake,false);
 el('tilt-enable').click();assert.equal(m.read().brake,false);
 el('touch-enable').click();assert.equal(m.enabled(),false);
 const stick=el('thumb-steer');stick.getBoundingClientRect=()=>({left:0,width:150});stick.setPointerCapture=()=>{};
+// Floating stick: where the thumb lands is centre (no surprise turn); ~54px of slide is full lock on Normal.
 stick.listeners.pointerdown({pointerId:1,clientX:129,preventDefault(){}});
-assert.equal(m.read().steer,1);
-stick.listeners.pointermove({pointerId:1,clientX:21});assert.equal(m.read().steer,-1);
+assert.equal(m.read().steer,0);
+stick.listeners.pointermove({pointerId:1,clientX:129+60});assert.equal(m.read().steer,1);
+stick.listeners.pointermove({pointerId:1,clientX:129-60});assert.equal(m.read().steer,-1);
 stick.listeners.pointercancel({pointerId:1});assert.equal(m.read().steer,0);
 let started=0;m.prepare(()=>started++);assert.equal(started,0);
 el('close-mobile-settings').click();assert.equal(started,1);

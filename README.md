@@ -58,3 +58,29 @@ Potential target structure:
 This repository is intended to be workable from both Claude Code and Codex.
 
 See `CLAUDE.md` and `docs/MIGRATION.md`.
+
+## Next-level features (branch `next-level`)
+
+Built on top of the imported v77 game, each with its own tests:
+
+- **Crystal Heart** — after a spin-out, press Power/Space as your bear's ring glows to bounce back using their emotional tool (Luna breathes, Keen is brave, Howey is kind to himself…).
+- **Crystal Resonance** — partner bears (Misty & Howey, Luna & Sunny, Aida & Amie, Zenny & Fuzzby; Keen with anyone) share a boost by racing side by side.
+- **Crystal Garden** — a two-minute crystal hunt on any course; spin-outs knock crystals loose, nobody is eliminated.
+- **Party mode** — phones scan a QR code in the online lobby and become controllers (`controller.html`); optional split-screen for up to four racers.
+- **Today's Crystal Cove** — one course, bear and goal per day for everyone, with a day streak.
+- **Track Builder** — kids design a loop (`builder.html`), race it in a chosen world and share it as a link.
+- Jumps and air tricks on every course, character voice reactions (silent until recordings are approved — see `game/docs/VOICE_LINES.md`).
+
+## Running locally
+
+```bash
+cd game
+npm run dev     # real worker + in-memory SQLite on http://localhost:8787 (rooms, challenges, leaderboards)
+npm test        # full test suite
+```
+
+Phones on the same Wi-Fi can join Party mode at `http://<your-computer-ip>:8787`.
+
+## Hosting
+
+Production hosting is moving to **Vercel + Turso**. Setup steps: [`docs/VERCEL.md`](docs/VERCEL.md).

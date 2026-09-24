@@ -49,7 +49,7 @@ Tag that working baseline before substantial gameplay changes.
 Apply the agreed Crystal Karts improvements after parity is established.
 
 ### 6. Deploy
-Move production hosting away from a visibly branded ChatGPT URL and integrate with The Crystal Bears / Crystal Arcade web experience.
+Move production hosting away from a visibly branded ChatGPT URL and integrate with The Crystal Bears / Crystal Arcade web experience. Target: Vercel + Turso — setup steps in `docs/VERCEL.md`.
 
 ## Acceptance gate
 

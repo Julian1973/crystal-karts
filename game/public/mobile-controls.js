@@ -1,3 +1,4 @@
+import {STEER_PROFILES,loadTouchSettings,saveTouchSettings,steerFromDrag,stepAutoDrift,buzz} from './touch-settings.js?v=78';
 export function thumbSteering(raw){const magnitude=Math.min(1,Math.abs(raw));return Math.sign(raw)*Math.pow(Math.max(0,(magnitude-.08)/.92),1.35);}
 export function screenTilt(beta,gamma,angle=0){
  const d=Math.PI/180,b=beta*d,g=gamma*d,a=angle*d;
@@ -13,7 +14,7 @@ export function tiltInput(current,neutral){
 }
 export function createMobileControls({interrupt,resume=()=>{},guide=()=>{},stopGuide=()=>{}}){
  const $=id=>document.getElementById(id),coarse={matches:matchMedia('(any-pointer:coarse)').matches||navigator.maxTouchPoints>0};
- let setupSeen=false,onReady=null;
+ let setupSeen=false,onReady=null,settings=loadTouchSettings();const driftState={};
  let centred=false,leftSeen=false,rightSeen=false,touchSteer=0,stickPointer=null,touchThrottle=false,touchBrake=false;
  let enabled=false,neutral=null,last=null,lastAt=0,angle=null,pending=false,timer,pausedBySettings=false;
  const angleNow=()=>screen.orientation?.angle??window.orientation??0;
@@ -55,11 +56,23 @@ export function createMobileControls({interrupt,resume=()=>{},guide=()=>{},stopG
  $('mobile-music').onclick=()=>$('music').click();$('mobile-sound').onclick=()=>$('sound').click();
 
  const stick=$('thumb-steer'),knob=$('thumb-knob');
- function moveStick(e){const box=stick.getBoundingClientRect(),raw=(e.clientX-box.left-box.width/2)/(box.width*.30);touchSteer=thumbSteering(raw);if(knob)knob.style.transform='translateX('+(touchSteer*42)+'px)';}
- function releaseStick(){stickPointer=null;touchSteer=0;if(knob)knob.style.transform='translateX(0)';}
- if(stick){stick.addEventListener('pointerdown',e=>{if(stickPointer!==null)return;e.preventDefault();stickPointer=e.pointerId;stick.setPointerCapture(e.pointerId);moveStick(e)});
- stick.addEventListener('pointermove',e=>{if(e.pointerId===stickPointer)moveStick(e)});
- for(const event of ['pointerup','pointercancel','lostpointercapture'])stick.addEventListener(event,e=>{if(e.pointerId===stickPointer)releaseStick()});}
+ // Floating stick: touch anywhere in the lower-left zone; that spot becomes centre, so there is no surprise turn.
+ let zone=$('steer-zone'),originX=0;
+ if(!zone&&stick?.parentElement&&document.createElement){zone=document.createElement('div');zone.id='steer-zone';zone.setAttribute('aria-hidden','true');stick.parentElement.insertBefore(zone,stick);}
+ const profile=()=>STEER_PROFILES[settings.sensitivity]||STEER_PROFILES.normal;
+ function moveStick(e){touchSteer=steerFromDrag(e.clientX-originX,profile());if(knob)knob.style.transform='translateX('+(touchSteer*Math.min(56,profile().reach))+'px)';}
+ function placeStick(e){if(!stick)return;const home=stick.parentElement?.getBoundingClientRect?.();if(!home||!stick.style)return;stick.classList?.add('floating');stick.style.left=Math.max(0,e.clientX-home.left-86)+'px';stick.style.bottom=Math.max(0,home.bottom-e.clientY-48)+'px';}
+ function releaseStick(){stickPointer=null;touchSteer=0;if(knob)knob.style.transform='translateX(0)';if(stick){stick.classList?.remove('floating');if(stick.style){stick.style.left='';stick.style.bottom='';}}}
+ for(const area of [zone,stick].filter(Boolean)){area.addEventListener('pointerdown',e=>{if(stickPointer!==null)return;e.preventDefault();stickPointer=e.pointerId;try{area.setPointerCapture?.(e.pointerId)}catch{}originX=e.clientX;placeStick(e);moveStick(e)});
+ area.addEventListener('pointermove',e=>{if(e.pointerId===stickPointer)moveStick(e)});
+ for(const event of ['pointerup','pointercancel','lostpointercapture'])area.addEventListener(event,e=>{if(e.pointerId===stickPointer)releaseStick()});}
+ // Controls panel: steering feel, auto-drive, auto-drift and vibration, remembered on this device.
+ function applySettings(){saveTouchSettings(settings);document.body.classList.toggle('auto-drive',settings.autoDrive);for(const b of document.querySelectorAll?.('[data-steer]')||[])b.setAttribute('aria-pressed',String(b.dataset.steer===settings.sensitivity));for(const [id,key] of [['auto-drive','autoDrive'],['auto-drift','autoDrift'],['touch-vibrate','vibrate']]){const box=$(id);if(box)box.checked=settings[key];}}
+ for(const b of document.querySelectorAll?.('[data-steer]')||[])b.onclick=()=>{settings={...settings,sensitivity:b.dataset.steer};applySettings();buzz('crystal',settings);};
+ for(const [id,key] of [['auto-drive','autoDrive'],['auto-drift','autoDrift'],['touch-vibrate','vibrate']]){const box=$(id);if(box)box.onchange=()=>{settings={...settings,[key]:box.checked};applySettings();};}
+ applySettings();
+ // Two thumbs on glass must never zoom, scroll or open a long-press menu mid-race.
+ document.querySelector?.('.touch-controls')?.addEventListener?.('contextmenu',e=>e.preventDefault());
  const hold=(id,on,off=on)=>{const btn=document.querySelector?.(`[data-key="${id}"]`);if(!btn)return;const down=e=>{e.preventDefault();on(true);btn.classList.add('pressed')},up=()=>{off(false);btn.classList.remove('pressed')};btn.addEventListener('pointerdown',down);for(const event of ['pointerup','pointercancel','lostpointercapture'])btn.addEventListener(event,up);btn.addEventListener('touchstart',down,{passive:false});for(const event of ['touchend','touchcancel'])btn.addEventListener(event,up,{passive:false});};
  hold('ArrowUp',v=>touchThrottle=v);
  hold('ArrowDown',v=>touchBrake=v);
@@ -73,8 +86,8 @@ export function createMobileControls({interrupt,resume=()=>{},guide=()=>{},stopG
  addEventListener('blur',()=>{last=null;lastAt=0;});document.addEventListener('visibilitychange',()=>{if(document.hidden){last=null;lastAt=0;}});orient();
  return {read(){const blocked=document.hidden||$('mobile-settings').open;
    if(blocked)return {steer:0,throttle:false,brake:false,blocked:true};
-   if(!enabled)return {steer:touchSteer,throttle:touchThrottle,brake:touchBrake};
+   if(!enabled)return {steer:touchSteer,throttle:touchThrottle,brake:touchBrake,autoDrive:settings.autoDrive};
    if(lastAt&&performance.now()-lastAt>1500){touch('Motion readings stopped. Touch controls are ready.');interrupt();return {steer:0,throttle:false,brake:false,blocked:true};}
-   return neutral&&last?{...tiltInput(last,neutral),throttle:touchThrottle,brake:touchBrake}:{steer:0,throttle:false,brake:false,blocked:true};
- },prepare(action){if(coarse.matches&&!setupSeen){onReady=action;$('mobile-settings').showModal();guide();}else action();},enabled:()=>enabled};
+   return neutral&&last?{...tiltInput(last,neutral),throttle:touchThrottle,brake:touchBrake,autoDrive:settings.autoDrive}:{steer:0,throttle:false,brake:false,blocked:true};
+ },driftAssist(input){return settings.autoDrift?stepAutoDrift(driftState,input):(driftState.drifting=false,driftState.hold=0,false);},buzz(kind){return buzz(kind,settings);},settings:()=>({...settings}),prepare(action){if(coarse.matches&&!setupSeen){onReady=action;$('mobile-settings').showModal();guide();}else action();},enabled:()=>enabled};
 }
