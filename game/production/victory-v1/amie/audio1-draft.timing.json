@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "4de1fc1a4d0b81667fe3cf90331b23c51fda1e6a5fde811df13f4f1d6d6d8c01",
+  "duration_seconds": 7.0,
+  "segments": [
+    {
+      "speaker": "Amie",
+      "text": "Hooray! Amethyst understanding! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "7986a04321348924cc9871924a4be863c1b6bb4292f9406c5714cdff8b023b16",
+      "start_seconds": 0.5,
+      "end_seconds": 5.3
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.7,
+  "approved": false
+}

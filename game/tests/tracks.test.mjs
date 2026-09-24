@@ -1,0 +1,9 @@
+import assert from 'node:assert/strict';
+import {TRACKS,makeTrack,routeStep,jumpStep} from '../public/tracks.js';
+import {contact} from '../public/physics.js';
+const t=makeTrack('river'),wood=makeTrack('wood');
+assert.equal(t.shortcuts.length,2);assert.equal(t.ramps.length,2);assert.equal(wood.shortcuts.length,1);for(const id of Object.keys(TRACKS)){const track=makeTrack(id);assert(track.shortcuts.length>=1,id+' has a hidden shortcut');for(const b of track.shortcuts){assert(b.ratio>1.05,id+' shortcut saves distance');assert(track.frame(b.a,0,b.id).p.distanceTo(track.frame(b.a).p)<.001);assert(track.frame(b.b,0,b.id).p.distanceTo(track.frame(b.b).p)<.001);}}
+for(const b of t.shortcuts){assert(b.ratio>1.05,'shortcut actually saves distance');assert(t.frame(b.a,0,b.id).p.distanceTo(t.frame(b.a).p)<.001);assert(t.frame(b.b,0,b.id).p.distanceTo(t.frame(b.b).p)<.001);const r={s:b.a+.05,lane:5,speed:25};routeStep(r,b.a-.1,t);assert.equal(r.route,b.id);const old=r.s;r.s+=1;routeStep(r,old,t);assert(r.s-old>1);r.s=b.b+.1;routeStep(r,b.b-.1,t);assert.equal(r.route,0);const stay={s:b.a+.1,lane:-4,speed:25};routeStep(stay,b.a-.1,t);assert(!stay.route);}
+for(const speed of [0,12,25,48]){const r={s:t.ramps[0]+.02,lane:0,speed};jumpStep(r,t.ramps[0]-.1,.01,t);assert.equal(!!r.airborne,speed>=18);let peak=0;for(let i=0;i<250;i++){const old=r.s;r.s+=speed*.01;jumpStep(r,old,.01,t);peak=Math.max(peak,r.airHeight);}assert(!r.airborne);if(speed>=18)assert(peak>2);}
+assert.equal(contact({s:20,lane:0,route:1},{s:20,lane:0},t.length),null);assert.equal(contact({s:20,lane:0,airHeight:4},{s:20,lane:0},t.length),null);assert(contact({s:20,lane:0},{s:20,lane:0},t.length));
+console.log('Passed: real shortcut distance, continuous joins, route choice, two ramps, gravity landing, height-aware contacts.');

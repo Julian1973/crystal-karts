@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "cc7e62f0acc741fff565faeceffdaf7c458b139b8a5640b9336c3fe3c3cac550",
+  "duration_seconds": 6.0,
+  "segments": [
+    {
+      "speaker": "Luna",
+      "text": "Yay! Lepidolite calm! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "93c65041a2445172e1fc87a1324f95d41bf289103ad00479300e65ea93e2e7ae",
+      "start_seconds": 0.5,
+      "end_seconds": 4.66
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.34,
+  "approved": false
+}

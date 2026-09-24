@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "6372634e0e88715f682bc66af36d5679b46e27bb9ad3fbd3436f4f6bae67867d",
+  "duration_seconds": 6.0,
+  "segments": [
+    {
+      "speaker": "Howey",
+      "text": "Hooray! Howlite kindness! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "4a9c4f362b0f1832052e79356df2f4d2f8b75d861b7dbc78b36bd04743e4c29b",
+      "start_seconds": 0.5,
+      "end_seconds": 4.42
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.58,
+  "approved": false
+}

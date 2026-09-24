@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {celebrationOpacity} from '../public/winner-video.js';
+assert.equal(celebrationOpacity(0,15),0);
+assert.equal(celebrationOpacity(.375,15),.5);
+assert.equal(celebrationOpacity(7,15),1);
+assert.equal(celebrationOpacity(14.625,15),.5);
+assert.equal(celebrationOpacity(15,15),0);
+assert.equal(celebrationOpacity(1,NaN),1);
+assert.equal(celebrationOpacity(0,0),0);
+console.log('Winner fade-in, full playback, fade-out and unknown duration passed.');

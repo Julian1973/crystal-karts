@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "3aaca5eb89cabd96fe751e63ac436ade9e993b7b365ef1d198d4d7d388cb1f98",
+  "duration_seconds": 7.0,
+  "segments": [
+    {
+      "speaker": "Sunny",
+      "text": "Woohoo! Citrine joy! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "a58f80c654b7a1c4c4f1acf3f227d38b436cf6d23e8aa421a0f4a954eb4687ac",
+      "start_seconds": 0.5,
+      "end_seconds": 5.7
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.3,
+  "approved": false
+}

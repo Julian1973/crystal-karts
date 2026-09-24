@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {RaceHighlight} from '../public/race-highlight.js';
+import {solveContacts} from '../public/physics.js';
+let stopped=0,drawn=0,ready=null;
+globalThis.document={createElement:()=>({getContext:()=>({drawImage(){drawn++;}}),captureStream:()=>({getTracks:()=>[{stop(){stopped++;}}]})})};
+globalThis.MediaRecorder=class{static isTypeSupported(t){return t==='video/mp4';}constructor(s,o){this.mimeType=o.mimeType;this.state='inactive';}start(){this.state='recording';}stop(){this.state='inactive';this.ondataavailable({data:new Blob(['frames'])});queueMicrotask(()=>this.onstop());}};
+const h=new RaceHighlight({width:1920,height:1080},c=>ready=c);
+assert(h.trigger('Spin'));assert(!h.trigger('Again'));assert.equal(h.surface.width,640);h.frame(100);assert.equal(drawn,1);h.stop();await Promise.resolve();assert.equal(ready.extension,'mp4');assert(stopped>0);
+h.reset();assert.equal(ready,null);h.trigger('Old race');h.reset();await Promise.resolve();assert.equal(ready,null,'old recorder cannot publish into a new race');
+const a={ci:0,s:0,lane:0,speed:30,halfWidth:.8,halfLength:1.4},b={ci:1,s:2,lane:0,speed:10,halfWidth:.8,halfLength:1.4};const events=[];
+solveContacts([a,b],[],1000,(r,k,v,owner)=>events.push({r,k,owner}));assert(events.length);assert(events.every(e=>e.owner===a),'rear striker owns reaction for both impact callbacks');
+console.log('Clip size, one capture, cleanup, stale callbacks and collision owner passed.');

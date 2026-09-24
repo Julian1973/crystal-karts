@@ -1,0 +1,246 @@
+{
+  "Keen": {
+    "voice": {
+      "voiceId": "TCRj5m2u9xhZHJ8h9pMv",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.4,
+        "similarity_boost": 0.9,
+        "style": 0.2
+      },
+      "cadenceSignature": "Breathless curiosity; courage arrives with an audible gulp and first step.",
+      "defaultTags": [
+        "excited",
+        "curious",
+        "nervous",
+        "gulps",
+        "gasps",
+        "breathes"
+      ],
+      "bannedTags": [
+        "deadpan",
+        "flatly"
+      ],
+      "physicalSignature": "Breath catches before the body commits forward."
+    },
+    "height": "4'9\" (145 cm)",
+    "mannerisms": "Forward momentum incarnate — leaning in, bouncing, half-turned to the next thing, his upright pale head-tuft leading like an arrow. The courage tell lives in the body before the leap (trembling paws → swallowed gulp → flattened ears → squared shoulders → lifted chin → step forward). Touches/turns his father's gold cuffs to gather nerve once he has them."
+  },
+  "Aida": {
+    "voice": {
+      "voiceId": "SHuZ9GyczU4QEDzU4QU4",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.45,
+        "similarity_boost": 0.9,
+        "style": 0.15
+      },
+      "cadenceSignature": "Warm, measured quiet authority; she gets quieter and slower when moved.",
+      "defaultTags": [
+        "softly",
+        "warmly",
+        "gently",
+        "exhales",
+        "quietly"
+      ],
+      "bannedTags": [
+        "shouting",
+        "angry"
+      ],
+      "physicalSignature": "Stillness leads; breath releases weight and the body opens slowly."
+    },
+    "height": "5'0\" (152 cm)",
+    "mannerisms": "Stillness is her signature — she commands a scene by NOT moving while everyone orbits her. A grounded, settled posture; an open palm or a steadying hand on a shoulder; a slow, knowing nod; a gathering gesture that draws the group in. When she's over-functioning, the stillness goes tight and self-contained — shoulders carrying, a small private breath she doesn't let anyone see. On the Crystal Call she lifts: upward, expansive, chest open. Her robes and headdress move slowly with her — she never rushes."
+  },
+  "Sunny": {
+    "voice": {
+      "voiceId": "BJG9bw7cUqGsIzkR556J",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.35,
+        "similarity_boost": 0.9,
+        "style": 0.25
+      },
+      "cadenceSignature": "Bright rapid run-on excitement, with a small quiet second voice when truth lands.",
+      "defaultTags": [
+        "excited",
+        "cheerfully",
+        "playfully",
+        "softly",
+        "quietly",
+        "breathes"
+      ],
+      "bannedTags": [
+        "deadpan",
+        "flatly"
+      ],
+      "physicalSignature": "Words tumble with motion; honest short lines arrive after the body stops."
+    },
+    "height": "4'2\" (127 cm)",
+    "mannerisms": "Pure motion — bounding, skipping, twirling, leaping; she physically cannot hold still when she's lit up. Tugs friends by the paw toward the next fun thing. Her signature directorial moment is the ABRUPT HALT — the instant all that motion stops dead. Anticipation lives in a tiny crouch-and-spring before she launches. When the brightness is costing her: the skip gets a half-beat slower, a smile held a fraction too long, a small private slump when she thinks no one's looking — then she pops back up and beams. The flower-bead collar and the little gold tiara catch the light when she spins."
+  },
+  "Misty": {
+    "voice": {
+      "voiceId": "Yj7sxjH2wQmzIjjKXnDy",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.9,
+        "style": 0.15
+      },
+      "cadenceSignature": "Gentle and intuitive; mirrors the listener without imitation.",
+      "defaultTags": [
+        "softly",
+        "gently",
+        "quietly",
+        "curious",
+        "exhales"
+      ],
+      "bannedTags": [
+        "shouting",
+        "angry"
+      ],
+      "physicalSignature": "Voice follows attentive eye-line and small empathetic movement."
+    },
+    "height": "5'5\" (165 cm)",
+    "mannerisms": "Physically attuned and a little hesitant: halts mid-step when something catches her sense, glances back over her shoulder, fidgets with her paws or the teardrop pendant at her chest when she's holding a truth she hasn't said. Tilts her head and goes still to listen. Gentle, open body language that turns toward whoever is hurting; often the first to move quietly to someone's side. Her tall frame folds down small and soft to meet a smaller bear at eye level rather than looming."
+  },
+  "Amie": {
+    "voice": {
+      "voiceId": "6lbKISvTuKILAwhNIepr",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.45,
+        "similarity_boost": 0.9,
+        "style": 0.2
+      },
+      "cadenceSignature": "Musical and lifting; finds and names the feeling without preaching.",
+      "defaultTags": [
+        "warmly",
+        "softly",
+        "gently",
+        "curious",
+        "breathes"
+      ],
+      "bannedTags": [
+        "flatly",
+        "angry"
+      ],
+      "physicalSignature": "The phrase rises with a small physical opening toward the listener."
+    },
+    "height": "3'10\" (117 cm)",
+    "mannerisms": "The smallest body in the frame, so she physicalises big: little paws pressed to her own chest when she's feeling-into someone, head tilting as she \"tunes\" to a friend's frequency, reaching a tiny paw toward whoever's hurting. When overthinking, she fidgets and kneads her paws, eyes darting between faces. When she activates an empathy bubble, her whole body opens — paws lifting, the purple-gem pendant catching the light. Her hair-gem and teardrop pendant are her tells: they glint when clarity lands."
+  },
+  "Howey": {
+    "voice": {
+      "voiceId": "rXUAKUHFzRwd8mYd3oLz",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.55,
+        "similarity_boost": 0.9,
+        "style": 0.1
+      },
+      "cadenceSignature": "Steady and gentle; bravery acknowledges fear before moving.",
+      "defaultTags": [
+        "calm",
+        "gently",
+        "quietly",
+        "nervous",
+        "exhales"
+      ],
+      "bannedTags": [
+        "shouting",
+        "proud"
+      ],
+      "physicalSignature": "Grounded breath and posture make kindness feel present."
+    },
+    "height": "5'10\" (178 cm)",
+    "mannerisms": "Leads with the chest and the open paw; a slow, deliberate physicality — he settles a scene rather than stirs it. Signature blocking: planting himself between a threat and the smaller cubs, half-turning to check everyone's behind him. Tells of self-doubt: a slight wince, a too-quick smile that doesn't reach the eyes, a paw that starts to reach for help then withdraws. When moved he goes completely still and quiet rather than louder. Offers comfort by sharing space and a steadying paw, not words."
+  },
+  "Luna": {
+    "voice": {
+      "voiceId": "gqDyJgCTCxcTOzggXvmS",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.55,
+        "similarity_boost": 0.9,
+        "style": 0.1
+      },
+      "cadenceSignature": "Calm stillness and the cast's longest meaningful pauses.",
+      "defaultTags": [
+        "calm",
+        "quietly",
+        "whispers",
+        "exhales",
+        "pauses"
+      ],
+      "bannedTags": [
+        "shouting",
+        "excited"
+      ],
+      "physicalSignature": "Breath, gaze and stillness settle the room before speech."
+    },
+    "height": "4'6\" (137 cm)",
+    "mannerisms": "Slowness in the body: she moves like she is underwater in the best way — settling, lowering, smoothing. Signature gestures are an open, downward-turning palm (a \"let it settle\" motion), a slow blink, a long held breath the audience can almost feel, and a gentle hand laid near (not gripping) another bear. Lavender wave effects ripple softly outward from her when her calm lands. In group scenes she drifts slightly off-centre or half behind an environmental element — her withdrawal is a deliberate performance signal, not a staging accident. When she suppresses her own need, the tell is the smallest thing: she soothes someone else a beat too quickly, smoothing a feeling away before it has been let to exist."
+  },
+  "Fuzzby": {
+    "voice": {
+      "voiceId": "DNK8oCkkHjIyEjzlCeQq",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.25,
+        "similarity_boost": 0.7,
+        "style": 0.4
+      },
+      "cadenceSignature": "Manic staccato pomp, total conviction, then an undercut that never admits defeat.",
+      "defaultTags": [
+        "excited",
+        "nervous",
+        "proud",
+        "confident",
+        "casual",
+        "playfully",
+        "exhales",
+        "breathes",
+        "gasps",
+        "gulps"
+      ],
+      "bannedTags": [
+        "deadpan",
+        "flatly",
+        "calm",
+        "softly"
+      ],
+      "physicalSignature": "Breath and emphasis ride the flourish, impact and chest-out cover-up; never detached talking-head delivery."
+    },
+    "height": "1'2\" (36 cm)",
+    "mannerisms": "Pomp/pride/indignation = he puffs his CHEST out and strikes a proud superhero / on-parade stance — chest pumped forward, shoulders back, head high, standing tall (the render that first worked). He does NOT inflate his whole body like a balloon. His feet/hover ALWAYS respect the ground — he NEVER sinks or falls through the floor. Any deflate that follows is a small slump or a dip, never the whole body shrinking. Tiny (1'2\"/36cm — the bigger of the two bees but minuscule beside the bears, ~2 lbs, adult male drone). Round wire-frame spectacles, a bulbous tan nose, translucent buzzing wings and antennae. Physical comedy is his primary instrument: the over-committed launch, the mid-air fumble, the proud landing that becomes a tumble."
+  },
+  "Zenny": {
+    "voice": {
+      "voiceId": "XEiPrIitaegdirIGkODX",
+      "modelId": "eleven_v3",
+      "settings": {
+        "stability": 0.55,
+        "similarity_boost": 0.9,
+        "style": 0.1
+      },
+      "cadenceSignature": "Understated dry deadpan; silence and a rationed smile carry the joke.",
+      "defaultTags": [
+        "deadpan",
+        "flatly",
+        "calm",
+        "quietly",
+        "exhales"
+      ],
+      "bannedTags": [
+        "shouting",
+        "excited",
+        "proud"
+      ],
+      "physicalSignature": "The voice follows near-stillness, a slow eye movement and one tiny release."
+    },
+    "height": "1'0\" (30 cm)",
+    "mannerisms": "Deadpan stillness is her signature — she holds almost perfectly still, only the smallest movements: a slow blink, a flat unimpressed stare, a tiny head-tilt. Hovers low and steady (she's a bee) without busy darting. Sits while Fuzzby zooms. Her one dry line arrives while she barely moves at all. The signature audio motif is \"Ommmmm… ping.\" The rare tell that she cares: a beat where the flat stare softens, the antennae dip a fraction, then she catches herself and the deadpan snaps back."
+  }
+}

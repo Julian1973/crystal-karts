@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {advanceManual,solveContacts,syncManualContact} from '../public/physics.js';
+const idle={throttle:false,brake:false,steer:0,drift:false,boost:false};
+const car=()=>({s:0,lane:0,speed:0,driveSpeed:0,lateralSpeed:0,heading:0,manual:true,mass:1});
+const step=(r,input=idle,yaw=0)=>advanceManual(r,1/120,input,yaw);
+let r=car();for(let i=0;i<240;i++)step(r);assert.equal(r.s,0);assert.equal(r.driveSpeed,0,'no automatic accelerator');
+for(let i=0;i<120;i++)step(r,{...idle,steer:1});assert.equal(r.lane,0);assert.equal(r.heading,0,'steering alone does not slide or spin a stationary kart');
+for(let i=0;i<120;i++)step(r,{...idle,throttle:true});assert(r.driveSpeed>10&&r.s>5,'manual acceleration');
+const before=r.driveSpeed,position=r.s;for(let i=0;i<60;i++)step(r);assert(r.driveSpeed<before&&r.driveSpeed>0&&r.s>position,'release coasts with drag');
+for(let i=0;i<240;i++)step(r,{...idle,brake:true});assert(r.driveSpeed<0,'hold brake reverses after stopping');
+const reversePosition=r.s;for(let i=0;i<120;i++)step(r,{...idle,brake:true});assert(r.s<reversePosition,'reverse travels backwards');
+r=car();r.driveSpeed=20;for(let i=0;i<120;i++)step(r,{...idle,throttle:true},i/120*.8);assert.equal(r.heading,0,'track rotation never steers the player');assert(r.lane<0,'straight heading departs a bending centreline');
+r=car();for(let i=0;i<120;i++)step(r,{...idle,throttle:true,steer:-1});assert(r.heading<0&&r.lane<0,'right steer changes heading to screen-right');
+r=car();r.driveSpeed=48;const rock={s:12,lane:0};for(let i=0;i<360;i++){step(r,{...idle,throttle:true,boost:true});solveContacts([r],[rock],858);syncManualContact(r,0)}assert.equal(r.driveSpeed,0);assert(r.s<9,'manual boosted kart remains blocked');
+for(let i=0;i<180;i++){step(r,{...idle,brake:true});solveContacts([r],[rock],858);syncManualContact(r,0)}assert(r.s<5&&r.driveSpeed<0,'reverse frees kart from rock');
+console.log('Passed: idle, stationary steering, manual acceleration, coast, brake/reverse, no automatic cornering, right steer, solid collision and reversing out.');

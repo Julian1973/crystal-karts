@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';import {advance,solveContacts,contact} from '../public/physics.js';import {makeTrack,routeStep} from '../public/tracks.js';
+const block={s:10,lane:0,halfWidth:1.8,halfLength:1.5,height:3.6};const ai={s:0,lane:0,speed:30,lateralSpeed:0,manual:false};for(let i=0;i<300;i++){advance(ai,1/120,30,0);solveContacts([ai],[block],1000);assert(ai.s<7,'AI cannot drive through block');}assert(!contact(ai,block,1000,true));
+const t=makeTrack('river'),b=t.shortcuts[0];for(const [lane,width,allowed] of [[5,1.55,true],[4,1.55,false],[6,1.55,false],[5,2.2,false]]){const r={s:b.a+.01,lane,halfWidth:width,speed:25};routeStep(r,b.a-.01,t);assert.equal(!!r.route,allowed);}
+console.log('Passed: sustained AI plinth collision, precise gap admission and angled-kart rejection');

@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "4066b05ad431a672867197eb23ffdf4412c909d823a14ce94098d7680b701a73",
+  "duration_seconds": 6.0,
+  "segments": [
+    {
+      "speaker": "Fuzzby",
+      "text": "Woohoo! Crystal power! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "47b7b29e27a40b40f2dd89b9f3d1e34fe7bd1f3c8b8243f5e288c24d47787f2e",
+      "start_seconds": 0.5,
+      "end_seconds": 4.74
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.26,
+  "approved": false
+}

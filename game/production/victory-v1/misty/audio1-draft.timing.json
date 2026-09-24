@@ -1,0 +1,19 @@
+{
+  "audio_path": "audio1-draft.wav",
+  "audio_sha256": "82da2781d0f64833e3dee85090d888523a8005f11899db84f41c31daa8a42625",
+  "duration_seconds": 7.0,
+  "segments": [
+    {
+      "speaker": "Misty",
+      "text": "Yay! Moonstone trust! That really helped me win!",
+      "event": null,
+      "source": "source.wav",
+      "source_sha256": "3cc76d900bc2ad57138fc928e8b30410bce4ad598a0ef14592ab8b1d34785fbd",
+      "start_seconds": 0.5,
+      "end_seconds": 5.3
+    }
+  ],
+  "boundary_type": "measured_source_file_boundaries_not_phoneme_alignment",
+  "tail_seconds": 1.7,
+  "approved": false
+}

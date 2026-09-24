@@ -1,0 +1,52 @@
+{
+  "generator": "Built-in image generation",
+  "poses": {
+    "aida": "Aida, cream-faced bear with long purple hair and ornate purple-and-turquoise jewellery, giving a warm confident smile and friendly open-paw welcome",
+    "amie": "Amie, pink bear with magenta side-swept hair and purple forehead crystal, giving a cheeky happy grin and a playful thumbs-up",
+    "fuzzby": "Fuzzby, male golden fuzzy bee with large tan bulbous nose and round spectacles, grinning with exuberant laughter and a friendly little wave, antennae and wings visible",
+    "howey": "Howey, grey bear with cream muzzle and blue crystal crown and pendant, smiling broadly and welcoming the viewer with a large friendly raised paw",
+    "keen": "Keen, blue bear with white hair tuft, leaning forward with a joyful open smile and one paw raised in an enthusiastic welcoming wave",
+    "luna": "Luna, lavender bear with long pale blonde hair and purple outfit, giving a warm delighted smile and small playful wave",
+    "misty": "Misty, white bear with long white hair and pale blue crystal crown, smiling brightly and giving a gentle welcoming wave",
+    "sunny": "Sunny, golden yellow bear with green eyes, gold tuft and colourful crystal tiara, laughing joyfully and waving one paw high",
+    "zenny": "Zenny, female golden fuzzy bee with small dark nose, round spectacles and long eyelashes and rosy cheeks, giving a bright friendly smile and welcoming wave, antennae and wings visible"
+  },
+  "assets": [
+    {
+      "id": "aida",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-dbd7ff6f-b5e8-429d-a117-690b22b4d4ae.png"
+    },
+    {
+      "id": "amie",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-0337f6ec-7c20-436c-a641-c4ba2712f07c.png"
+    },
+    {
+      "id": "fuzzby",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-70563d91-6799-43e8-8876-401006cab097.png"
+    },
+    {
+      "id": "howey",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-112baf6d-dab9-42dc-8f18-92409a91e017.png"
+    },
+    {
+      "id": "keen",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-be5d8e72-e2d6-4628-919b-387c09c4bc2a.png"
+    },
+    {
+      "id": "luna",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-6ecd039e-adf3-4702-acd2-b0878eaaaa02.png"
+    },
+    {
+      "id": "misty",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-3b185506-2bbc-4e96-80df-2b3e54719aaf.png"
+    },
+    {
+      "id": "sunny",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-2d9098a3-c05e-4569-9db5-086b84a7520e.png"
+    },
+    {
+      "id": "zenny",
+      "path": "/workspace/scratch/91f241b54fdd/generated_images/exec-f99c5a8e-0d03-436b-9039-72792d1e32cc.png"
+    }
+  ]
+}

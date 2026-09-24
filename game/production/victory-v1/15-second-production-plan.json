@@ -1,0 +1,172 @@
+{
+  "revision": 2,
+  "units": [
+    {
+      "character": "Keen",
+      "voice_id": "TCRj5m2u9xhZHJ8h9pMv",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": "Brave and bright, with all my might — Aquamarine, shine with light!",
+      "canon_crystal_direction": {
+        "character": "Keen",
+        "call": "Brave and bright, with all my might — Aquamarine, shine with light!",
+        "callStatus": "locked",
+        "delivery": "Breathless and young, and crucially it does NOT begin big. Keen starts the line already a little shaky — \"Brave and bright\" wobbles, the voice cracking small the way it does right before he leaps, the fear still audible in it (a caught half-breath, paws-don't-want-to-move thin). Then on \"with all my might\" something firms: not louder, TRUER — the wobble resolves into conviction as he hears himself mean it. The em-dash before \"Aquamarine\" is a real gulp-and-gather, the catch in the throat that is his whole signature. The crystal name lands clear and steady — the first fully un-wobbled words he's said — and \"shine with light!\" lifts forward and bright, eager rather than shouted, like he's already running at it. Register: a 7-year-old finding the floor under his own bravery mid-sentence. ElevenLabs TCRj5m2u9xhZHJ8h9pMv, low stability; tag it [breath] / [gulp] before the dash, the brave half rising from nervous to certain — sincerity, never volume. If it sounds fearless, it's wrong; the fear has to be IN the first half and conquered by the second.",
+        "physicality": "Forward momentum incarnate, but it has to START scared. Open on the body tell: trembling paws, ears flattening, a swallowed gulp — he's small for a beat. On \"Brave and bright\" his paws find his father's gold cuffs and turn them, gathering nerve from the inheritance. Then the build is upward and forward: flattened ears lift, shoulders square, chin rises, and his signature upright pale head-tuft leads like an arrow pointing the way he's about to go. On the em-dash gulp he plants — a tiny crouch-and-load. On \"Aquamarine\" he thrusts both cuffed wrists FORWARD and up, the brave word and the brave gesture together, body leaning into the leap he's no longer afraid to make. He doesn't strike a static hero pose and hold it; he's already moving through it, caught mid-surge — courage as a step taken, not a stance posed.",
+        "crystalMoment": "It begins DIM — flickering, uncertain, the cool blue guttering low while the fear is still in his voice (in Ep1's origin beat it's the vacant wristband bezels self-glowing faintly aqua from within, courage before the crystal even exists). As his voice firms on \"with all my might\" the flicker steadies. On \"Aquamarine\" the light catches and holds; and on \"shine with light!\" it BLAZES — electric azure surging up and outward from the wrists, the two kite-gems igniting steady in the gold cuffs, cool blue shadows burning off into bright dawn-blue. The blaze is the visible proof he acted THROUGH the fear, not around it — earned by the dim that came first, never handed to him.",
+        "trigger": "It only lands AFTER the real fear has been felt and shown — never as a rote chant. The earning beat is the selfless one: someone he can save is in danger (Squeaky in the dark water), his paws genuinely don't want to move, and the call comes in the half-second AFTER he's already decided to go anyway — not to summon courage he doesn't have, but as the declaration of the truth he just discovered in his own body: that he's scared AND he's going, and the scared part is where the brave part comes from. The crystal answers because he MEANS it — he's stopped pretending he was never afraid. Without the visible gulp and trembling-paws fear immediately before, the call is unearned and must not be spoken."
+      },
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Aida",
+      "voice_id": "SHuZ9GyczU4QEDzU4QU4",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": "With heart open wide, I stand with pride — Rose Quartz, be our guide!",
+      "canon_crystal_direction": {
+        "character": "Aida",
+        "call": "With heart open wide, I stand with pride — Rose Quartz, be our guide!",
+        "callStatus": "locked",
+        "delivery": "Low, warm, unhurried — her register, not a battle cry. This is the one Crystal Call that starts almost in a whisper: \"With heart open wide\" comes out soft and a touch unsteady, the sound of someone saying a thing she has spent the whole episode unable to say. Crucially — against every other bear — she does NOT build to a shout. As the truth firms she gets QUIETER and STILLER, the voice settling into a low, certain, glowing calm; \"I stand with pride\" lands plain and grounded, no flourish. The only lift is a gentle warming and opening on \"Rose Quartz, be our guide\" — the word \"guide\" carried on a slow released breath, like setting a weight down at last. Pace: slow, with real air between the three phrases; she trusts the silence. V3 spec: voice SHuZ9GyczU4QEDzU4QU4, Stability 45 / Staggeration 15, 3+ takes (canon §8.7). Direction line: \"[softly] With heart open wide… [warmly, quieter] I stand with pride… [gently, exhaling] Rose Quartz, be our guide.\" Never harsh, never big; sincerity, not volume — the crystal answers the truth, not the loudness.",
+        "physicality": "She has been folded inward all episode — stillness gone tight, shoulders privately carrying. The Call is the un-clenching. On \"With heart open wide\" her arms open from the chest outward, slow, palms turning up and out — the over-functioning gather-gesture reversed: instead of drawing everyone in to hold them, she opens to be held. Her chin lifts, the layered robes and necklaces sliding slowly with her (she never rushes, never snaps a pose). On \"I stand with pride\" she rises to her full tall-elder height, grounded and rooted, chest open, the jewelled headdress catching the light. On \"Rose Quartz, be our guide\" both palms turn fully skyward and lift, an expansive upward reach — the body of a leader who has finally let belonging run both ways. Hold her there; her stillness commands the frame while the others orbit and lean toward her. No sudden moves, no rapid cuts — the camera tilts gently up with her.",
+        "crystalMoment": "The crystal tells the whole arc in the run-up: it has been flickering (carrying too much), and at the nadir just before this it DIMMED to its lowest — the moment she let herself need help. As the Call begins, on the first soft \"heart open wide,\" it catches and BLAZES warm rose pink — the help has been received. Through \"I stand with pride\" the rose light strengthens and steadies into a full, even glow. On \"Rose Quartz, be our guide\" it surges upward and outward — an expansive warm-pink bloom that radiates from her chest and washes the others orbiting her in soft rose light. After the line it settles to a steady, radiant warm pink that doesn't flicker — the strong one, finally held, now glowing lighter than she began.",
+        "trigger": "It only lands AFTER the receiving beat — the Heart-of-the-Matter and Glow-of-Connection must have happened first. Aida has spent the episode absorbing everyone's weight in silence, crystal flickering then dimming; her nadir is the small, costly, near-wordless moment she finally lets the weight show and allows herself to need. The Call is EARNED the instant a younger bear or the group offers HER empathy — holds the one who always holds them — and she lets herself be carried. That felt relief, that permission to set the weight down, is what opens her heart \"wide.\" Fire the Call only on that real exhale of being held; never as a rote power-up chant, never before she has truly let herself be received — otherwise the crystal stays dim and the line rings hollow."
+      },
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Sunny",
+      "voice_id": "BJG9bw7cUqGsIzkR556J",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": "Bright as the sun, ready for fun — Citrine, let happiness run!",
+      "canon_crystal_direction": {
+        "character": "Sunny",
+        "call": "Bright as the sun, ready for fun — Citrine, let happiness run!",
+        "callStatus": "locked",
+        "delivery": "High, warm, sunlit — but this is NOT her opening-blaze mania. It blooms UP out of her quiet second voice, the honest-amber hush. Open soft and small on \"Bright as the sun\" — almost a held breath, sincere, like she's only just letting the light back on — then let it GROW line by line, the run-on energy returning as real joy rather than armour. \"ready for fun\" lifts; the dash is a tiny in-breath; \"Citrine, let happiness run!\" arrives full, bright and tumbling-fast, her natural can't-sit-still cadence finally earned and true. Crucially it speeds up and brightens through the line (the opposite of a chant) — sincerity first, sparkle second. ElevenLabs V3: voice BJG9bw7cUqGsIzkR556J, low/Creative stability so the acting lands; tags [softly] then [warmly] building to [excited][cheerfully]; CAPS only on \"RUN\"; generated alone, Stability 45 / Staggeration 15, min 3 takes. Phonetics fine as written (Citrine = \"Sit-reen\"). Never loud-for-loud's-sake — the crystal answers the truth in it, not the volume.",
+        "physicality": "Begins from the HALT — she's been small and still, slumped honest after telling the one true thing. The call lifts her off the floor: a tiny crouch-and-spring of anticipation, then she uncurls and rises onto her toes, paws opening from her chest outward to the sky like she's letting the sun back in. By \"let happiness run!\" she's into her real motion again — a spin, the flower-bead collar and little gold tiara catching the light, a skip that wants to go somewhere. Stage her low and small in frame (she's a tiny cub), rising INTO the light rather than already in it. The body remembers how to be bright, but gentler than the opening — this is joy that chose to come back, not joy that never stopped.",
+        "crystalMoment": "Citrine starts in honest amber — the soft, gutted-but-true glow of the moment she let herself be tired. On \"Bright as the sun\" it warms and steadies (no erratic flicker — the strain is gone). Through \"ready for fun\" it deepens and climbs from amber back toward gold, and on \"let happiness run!\" it BLAZES full golden-yellow, beams spilling out to fill the frame and warm-over-saturate Crystal Cove around her — the gold returning, but now it's the TRUE light, brighter for having been allowed to dim. Right after the call it settles to a steady, even golden glow (not the jittery blaze of the opening) — the sun that knows it's allowed to rest and come back.",
+        "trigger": "It lands ONLY after the turn — never while she's still performing brightness. She has to have hit the abrupt HALT, let the manic light gutter, and told the one small true thing (\"...I'm a bit tired\") after a beat of silence, and a friend has to have given her not a fix but PERMISSION to stop. The call is what blooms on the far side of that honesty: the felt relief of being allowed to be small, which frees the real joy. If it's fired off the top while the sun is still her shield, it's hollow and the crystal stays amber/flickering — Citrine answers the sincerity of \"I let myself rest and I'm still me,\" not the cheer. The earned feeling is: my light is allowed to dim and come back, and THIS is the coming back."
+      },
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Misty",
+      "voice_id": "Yj7sxjH2wQmzIjjKXnDy",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": "Feeling deep and true, seeing old and new — Moonstone, help us through!",
+      "canon_crystal_direction": {
+        "character": "Misty",
+        "call": "Feeling deep and true, seeing old and new — Moonstone, help us through!",
+        "callStatus": "locked",
+        "delivery": "Low, gentle alto — the quietest Crystal Call in the cast, sincerity not volume. It does NOT start brave. The first half (\"Feeling deep and true…\") arrives almost on a held breath, half-spoken to herself, the way she's only ever sensed the truth privately — soft, with the hairline tremor of someone deciding to say the thing out loud for the first time. Then the gap closes: on \"seeing old and new\" the hedge drops away and the softness FIRMS — same warm register, no louder, but suddenly unwavering, the wobble gone. The name \"Moonstone\" lands plain and certain, like a truth she's finally stopped arguing with. \"help us through\" opens outward — the first time her voice is FOR the room and not just inside her. V3: [softly][gently] on the open, a held breath before it, then [with quiet conviction] from \"seeing\" on; never bright, never sharp, never shouted. The whole line is a private knowing becoming a spoken one.",
+        "physicality": "She starts folded and hesitant — tall frame drawn in small, a paw at the teardrop pendant on her chest (her tell for a truth she's holding back), maybe a glance to the side as the doubt fights her. On the turn she stills completely: the head-tilt-and-listen goes quiet, the fidget stops, and she presses that paw flat over her own heart — claiming the instinct instead of hiding it. Then she UNFOLDS to her full height, the only time her tallness is allowed to read, and lifts her chin and gaze level and forward — eyes open and direct, no longer looking away. On \"help us through\" the heart-paw opens outward into a steady offering gesture, palm turning toward the others, drawing them into what she now trusts. Grounded, rooted, no flourish — the body of someone who has stopped flinching from what she knows.",
+        "crystalMoment": "Through the hesitation the Moonstone shimmers iridescent and restless — light skating across its pearly surface like the inside of a shell, refusing to settle, mirroring the second-guessing. At the exact instant the doubt breaks (on \"seeing old and new\"), the shimmer STOPS — and the crystal blazes a steady, clear, cool white, moonlit and certain, holding rock-steady through \"Moonstone, help us through.\" On the final phrase a soft iridescent blue-silver pulse rings outward from it across the room, a wave of moonlit certainty. After the call it settles to that clean steady white and HOLDS — no flicker — the visual proof she has finally trusted herself. (Per locked staging, the camera steadies with it: any drift/handheld settles dead-still as the Moonstone blazes — the world stops second-guessing when she does.)",
+        "trigger": "It is EARNED only after she has felt the unspoken thing and survived the cost of nearly swallowing it again. She has sensed the real feeling in the room — the quiet friend, the masked worry, the thing no one's said — felt it first and faster than anyone, and then done what she always does: talked herself out of it, deferred, gone quiet, hesitated at the edge of speaking. The call cannot fire on the sensing; it fires the instant she chooses to TRUST the gut she's been doubting and say it out loud — the gap between knowing and saying finally closing. The feeling that unlocks it is the small, costly courage of self-trust: \"I know this is true, and I'm done being too afraid to say it.\" Never a chant, never on cue — it lands only once that private knowing has become worth voicing for the people she loves."
+      },
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Amie",
+      "voice_id": "6lbKISvTuKILAwhNIepr",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": "From within I shine so bright — Amethyst, let's shine the light!",
+      "canon_crystal_direction": {
+        "character": "Amie",
+        "call": "From within I shine so bright — Amethyst, let's shine the light!",
+        "callStatus": "locked",
+        "delivery": "Small, bright and musical — the youngest voice in the cast, but here it stops fluttering and finds its centre. It does NOT get louder; it gets SURER. Begin almost hushed and inward on \"From within\" — a discovery she's making about herself in real time, a tiny breath of wonder, like she's just felt the answer in her own chest. Then it lifts, note by note, a little melody climbing: \"I shine so\" rising, the lone CAPS-lift landing warm on \"BRIGHT\" — not a shout, a bloom. A held micro-pause on the em-dash (the spinning finally going quiet) before the second half arrives certain and tender — \"Amethyst, let's shine the light\" — the \"let's\" is everything: it's invitation, not command, her gift pointed outward at last. End soft and open, not punched. V3: [gently] inward open, one [wonders]/[curious] lift on the climb, CAPS only on BRIGHT, ellipsis-feel into the dash; low stability (Creative) so the musical rise lands; sincerity, never volume.",
+        "physicality": "Starts the smallest body in the frame, paws pressed flat to her own chest — the inward gesture, feeling-into herself for once instead of everyone else. On \"From within\" she's looking down/in, almost still. Then she UNFOLDS: paws lift slowly off her chest and open outward and upward like she's releasing something she's been holding too tightly, head tilting up, the tiny frame rising onto her toes — her whole little body opening the way it does when she activates an empathy bubble, but this time it opens for HER. On \"let's shine the light\" the open paws reach gently out toward her friends — sharing the light, not wielding it. No big hero stance, no fists; it's a flower opening, soft and certain, the smallest bear made tall by sincerity.",
+        "crystalMoment": "Through the whole spin before this it has been fractured, shifting, restless light — too many perspectives. On \"From within,\" as her paws press her chest, the fracturing STILLS — the shards drawing inward and knitting to one deep, steady purple core (the spinning resolving into a single point). On the lift to \"BRIGHT\" the Amethyst clears to brilliant, brilliant violet — clean-faceted, radiant — and on \"let's shine the light\" it sends warm purple/lavender light blooming OUTWARD past her, an expanding glow that washes the frame in balanced, symmetrical radiance (mirroring the crystal's clean facets). Her hair-gem and the teardrop pendant catch and glint right on \"light\" — the visual proof clarity has landed. Note D / Re (293.66 Hz) sings under it.",
+        "trigger": "It must land at the bottom of her overthink valley turning — NEVER as a rote chant. The whole episode she's been drowning in everyone's feelings at once, frozen, unable to choose or act for herself. The Call is only earned in the held, sustained pause where the spinning finally STOPS: the moment she quits trying to hold ALL of it, stops understanding everyone, and feels-into ONE friend — or, harder still, into herself — and that single bridge is enough. The real feeling has to be felt first (the frozen too-much giving way to one clear, grounded knowing) — then, and only then, does the inner truth surface and the Call rise out of it. It is the sound of \"I don't have to carry every perspective; I can shine my own light and share it.\" Understanding becoming a step forward, not a hiding place."
+      },
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Howey",
+      "voice_id": "rXUAKUHFzRwd8mYd3oLz",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": "Steady and bright, with peaceful might — Howlite, guide us right!",
+      "canon_crystal_direction": {
+        "character": "Howey",
+        "call": "Steady and bright, with peaceful might — Howlite, guide us right!",
+        "callStatus": "locked",
+        "delivery": "Deep, soft, low — the warm register that lowers the temperature of a room. He NEVER booms; the power-up is the opposite of a shout. Begin under his breath, almost to himself, the fear named first in the air around it: a held exhale before the first word so we hear the brave-through-fear, not bravado. \"Steady... and bright,\" lands slow and weighted, two grounded periods, each word a planted foot — he is talking himself into his own steadiness as much as declaring it. The turn at the em-dash is the only lift: \"with peaceful might\" firms from a near-whisper into quiet, certain conviction — still gentle, never louder, just SURER, the hedge gone. On \"Howlite, guide us right!\" the warmth opens through the chest and rounds full and steady — sincerity, not volume; the exclamation is settledness arriving, not a yell. Mint-cool, unhurried, E/Mi calm. V3: [softly][breathes] into the first line, [gently] firming to a low warm conviction by the last; stability ~45 per the Crystal-Call standard so the steadiness holds without going flat. He gets stiller and quieter as it deepens — the deepest feeling lands almost hushed.",
+        "physicality": "He leads with the chest, not the mouth. From a protective half-turn — his big body planted between his friends and the hard thing, the smaller cubs tucked in his lee — he goes completely STILL, the way he always does when truly moved. A slow, deliberate weight-settle: paws lowering and opening, palms turning outward and down, the open-paw offering gesture made into a stance. One large paw comes to rest flat over his own chest, over the heart, on \"peaceful might\" — the rare beat where the giver lets the care land on HIMSELF — then both paws open outward to gather the others into his shelter on \"guide us right.\" He grows taller only as comfort: he rises into his full height not to loom but to widen the shield, shoulders broadening so everyone behind him is covered. No flourish, no flash-pose — his power is gravity. He ends grounded, chest open, paws spread wide and low like a held door, the whole group orbiting into his calm.",
+        "crystalMoment": "The Howlite reads his inner monologue, as always. It opens dimmer than the others — because his armour is over-responsibility, the crystal is half-shadowed at the trigger, the light he's been pouring outward leaving little for himself. As he names the fear and settles, on \"steady and bright\" it warms from that dim to a pure even white — not a sudden flare but a slow swell, like a held breath turning to glow. The signature beat is the blaze that fires on \"Howlite, guide us right!\" — and crucially it blazes BRIGHTEST as his paw is over his own heart, the canon tell that his crystal blazes when he ACCEPTS care, here accepting it from himself. Clean warm white light pools outward from his chest, the calm light source the others drift toward; mint-cool motes settle in the air. After the call it holds a steady, generous, unflickering white — the anchor glow restored, completed in both directions.",
+        "trigger": "It is EARNED, never chanted. It cannot fire from a steady Howey — it only lands once he has hit his real feeling: the moment the giver who cannot receive runs himself dim and finally, wordlessly, lets a friend's kindness reach him (or chooses to be as gentle with himself as with them). The honest beat that unlocks it is the fear NAMED, not hidden — he is afraid he doesn't have enough left, afraid his own care doesn't count, and instead of \"I'm fine, don't worry about me,\" he stays still and lets that truth be true. The instant he stops over-functioning and accepts that he is allowed to be held too, the steadiness becomes real, not performed — and only then does the call belong in his mouth. Sincerity, not volume: the crystal answers the moment the strongest, gentlest bear lets himself be cared for."
+      },
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Luna",
+      "voice_id": "gqDyJgCTCxcTOzggXvmS",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": "With quiet and might, I trust my sight — Lepidolite, reveal what’s right!",
+      "canon_crystal_direction": {
+        "character": "Luna",
+        "call": "With quiet and might, I trust my sight — Lepidolite, reveal what’s right!",
+        "callStatus": "locked",
+        "delivery": "The lowest, slowest delivery in the cast — a single long exhale shaped into words, not a shout. Warm vanilla-soft alto, no brightness, no edge, never rising in volume. She does the OPPOSITE of a power-up belt: the room is loud, so she goes quieter, and that hush is the power. \"With quiet and might\" begins softly but with grounded certainty; a held breath follows \"I trust my sight,\" Lepidolite lands on a settled out-breath, and \"reveal what’s right\" opens outward with quiet conviction rather than extra volume. ElevenLabs V3: low stability, [softly] / [gently] / [breathes] / [long pause] only; ~2 words/sec, the silence between phrases carrying as much as the words. It is sincerity, not force — she means it as a true thing she is finally letting be true for herself too, not a chant aimed at fixing the room.",
+        "physicality": "She lowers rather than lifts — the one bear whose call sinks instead of soars. Eyes drift closed on the first breath; an open, downward-turning palm sweeps slowly out and down in her signature \"let it settle\" motion, as if pressing the air calm. Shoulders ease, weight settles low, posture smoothing like silt sinking in still water. On the crystal name a slow blink and the gentlest open of both palms; she stays grounded and centred, no flourish, no thrown-up arms. Movement underwater-slow throughout — the camera tracks smooth and slow with her, never a cut into the stillness.",
+        "crystalMoment": "Her Lepidolite does NOT flare, strobe, or spike — that would break her. Instead it eases on: the soft steady lavender deepens slowly to a full, true, even lavender, like a light being turned gently up by hand. As the line resolves, a single slow lavender wave ripples softly outward from her chest gem, time-dilating the air and pulling the world into soft focus — the whole frame settling, slowing, going lavender around her. After: it holds at that fuller warm even glow, the calm having landed and stayed; no afterflash, just steadiness.",
+        "trigger": "It only earns its place once the too-big feeling has been genuinely felt — the storm of wiggles in the room (or, for her own arc, the storm she's quietly carried) has crested and someone is right at the edge of being overwhelmed. The call is NOT a rote button: she reaches for it only after she has truly let the feeling be big, hers or theirs, in the silence first. For her deepest version it lands the moment she lets herself need the calm too — settling herself as much as the room — so the crystal responds to that lived sincerity, not to volume."
+      },
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Fuzzby",
+      "voice_id": "DNK8oCkkHjIyEjzlCeQq",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": null,
+      "canon_crystal_direction": {},
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    },
+    {
+      "character": "Zenny",
+      "voice_id": "XEiPrIitaegdirIGkODX",
+      "duration_seconds": 15,
+      "opening_line": "Yeah, I won!",
+      "crystal_call": null,
+      "canon_crystal_direction": {},
+      "audio1": null,
+      "timing_status": "editorial allocation only; not measured",
+      "image_approved": true
+    }
+  ],
+  "render_ready": false,
+  "blockers": [
+    "New exact dialogue requires ElevenLabs voice generation; no ElevenLabs credential configured in this runtime.",
+    "Fuzzby and Zenny have no locked crystal calls in current show bible."
+  ],
+  "audio_contract": {
+    "duration_seconds": 15,
+    "authority": "@Audio1",
+    "preserve_natural_speed": true,
+    "minimum_silent_tail_seconds": 2,
+    "measure_before_final_prompt": true
+  }
+}

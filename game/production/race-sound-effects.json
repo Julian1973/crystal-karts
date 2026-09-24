@@ -1,0 +1,98 @@
+[
+  {
+    "name": "woodland",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e3-8473-7ea3-9039-defb1e4e822a",
+    "url": "https://v3b.fal.media/files/b/0aaa8b5b/H_DDww_XeRPprM2bEP8X2_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 18,
+      "loop": true,
+      "output_format": "mp3_44100_128",
+      "text": "Natural woodland ambience, gentle breeze rustling leafy trees, scattered cheerful birdsong at different distances, quiet open forest, no music or voices, continuous seamless background loop."
+    }
+  },
+  {
+    "name": "water",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e3-3765-7ce2-b2f8-0c508490aa92",
+    "url": "https://v3b.fal.media/files/b/0aaa8b59/gY41Yi9OkEIFxUQ3U-0pM_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 18,
+      "loop": true,
+      "output_format": "mp3_44100_128",
+      "text": "Natural clear flowing river ambience, gentle bubbling stream and distant soft waterfall, occasional water ripples, peaceful outdoor space, no music or voices, seamless loop."
+    }
+  },
+  {
+    "name": "coast",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e3-61f9-74c0-a9da-87e64fb1edff",
+    "url": "https://v3b.fal.media/files/b/0aaa8b5a/OAd7v5AN4k50iU1F_Jbzk_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 18,
+      "loop": true,
+      "output_format": "mp3_44100_128",
+      "text": "Natural seaside ambience, gentle small surf waves rolling and washing onto sand, soft coastal breeze, occasional distant gull, no music or voices, seamless loop."
+    }
+  },
+  {
+    "name": "night",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e3-a6eb-7b22-994b-43c77c6120ef",
+    "url": "https://v3b.fal.media/files/b/0aaa8b5c/ljPaug_Mwe1BCKy7xClsU_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 18,
+      "loop": true,
+      "output_format": "mp3_44100_128",
+      "text": "Quiet natural nighttime woodland ambience, soft crickets, rustling leaves, occasional distant gentle owl, peaceful child friendly night, no music or voices, seamless loop."
+    }
+  },
+  {
+    "name": "meadow",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e3-cc1a-7b62-9a4a-3429664863c7",
+    "url": "https://v3b.fal.media/files/b/0aaa8b5c/JoEQ8QmDypPVrHPCMJzEg_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 18,
+      "loop": true,
+      "output_format": "mp3_44100_128",
+      "text": "Warm summer meadow natural ambience, quiet friendly bees humming past, gentle grass rustle, distant songbirds, no music or speech, seamless loop."
+    }
+  },
+  {
+    "name": "chuckle",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e3-eb53-7db3-900b-f1ccad25307e",
+    "url": "https://v3b.fal.media/files/b/0aaa8b5d/VyPWHc47Nl0qoi8a4c1eH_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 1.5,
+      "loop": false,
+      "output_format": "mp3_44100_128",
+      "text": "One short warm playful cartoon creature chuckle, ha ha! Nonverbal laughter only, friendly amused reaction to a harmless bump, clean isolated dry sound, no words, no music, no background."
+    }
+  },
+  {
+    "name": "engine",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e4-0b99-7451-88c9-e9eafdfe5d18",
+    "url": "https://v3b.fal.media/files/b/0aaa8b5e/OnF2LEpJDUlE5SwKbn4Hf_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 5,
+      "loop": true,
+      "output_format": "mp3_44100_128",
+      "text": "Small sporty go kart petrol motor running steadily at medium low revs, warm playful puttering mechanical engine, consistent pitch and volume, no gear changes, no voices or music, clean seamless engine loop."
+    }
+  },
+  {
+    "name": "rain",
+    "endpoint": "fal-ai/elevenlabs/sound-effects/v2",
+    "request_id": "01a0a5e4-2d69-70e3-a4e3-6d8f75310e82",
+    "url": "https://v3b.fal.media/files/b/0aaa8b5f/Y2KI4q2HSFqzVhQWUCFoM_sound_effect.mp3",
+    "input": {
+      "duration_seconds": 18,
+      "loop": true,
+      "output_format": "mp3_44100_128",
+      "text": "Gentle natural rain falling onto leaves and wet ground, soft pattering drops, no thunder, no music or voices, steady seamless atmosphere loop."
+    }
+  }
+]
