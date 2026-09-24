@@ -1,1 +1,1 @@
-{"name":"crystal-bears-rally","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","db:generate":"drizzle-kit generate"},"devDependencies":{"drizzle-kit":"0.31.4","drizzle-orm":"0.44.5","three":"^0.170.0"}}
+{"name":"crystal-bears-rally","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","db:generate":"drizzle-kit generate","dev":"node scripts/dev-server.mjs","test":"node --test tests/*.test.mjs"},"devDependencies":{"drizzle-kit":"0.31.4","drizzle-orm":"0.44.5","three":"^0.170.0"}}

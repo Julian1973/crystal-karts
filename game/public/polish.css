@@ -16,3 +16,12 @@ body.race-jolt #world{animation:race-jolt .18s ease-out}@keyframes race-jolt{25%
 @media(prefers-reduced-motion:reduce){#position.position-pop,#countdown>span,#finish-confetti.active,#results .winner-heading::after{animation-duration:.01ms!important;animation-iteration-count:1!important}#moment-flash,#photo-finish{transition:none}}
 
 body.reduced-effects #results .winner-heading::after{animation:none}body.reduced-effects #finish-confetti.active{animation-duration:1.25s;opacity:.35}body.reduced-effects.race-jolt #world{animation-duration:.11s}
+
+/* Party mode: phone controller join panel in the online lobby */
+#phone-join{display:flex;gap:14px;align-items:center;margin:10px 0;padding:12px;border-radius:16px;background:rgba(255,255,255,.08);text-align:left}
+#phone-join .phone-qr{flex:0 0 132px;background:#fff;border-radius:12px;padding:6px;line-height:0}
+#phone-join .phone-qr svg{width:120px;height:120px}
+#phone-join .phone-copy{display:grid;gap:4px;min-width:0}
+#phone-join small{opacity:.75;overflow-wrap:anywhere}
+#phone-join label{display:flex;gap:8px;align-items:center;font-weight:700}
+@media (max-width:640px){#phone-join{flex-direction:column;text-align:center}}
