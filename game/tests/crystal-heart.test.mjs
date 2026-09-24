@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {HEART_TOOLS,startHeart,pressHeart,heartExpired,heartProgress,heartReward,createHeartUI} from '../public/crystal-heart.js';
+import {CRYSTALS} from '../public/skills.js';
+assert.deepEqual(Object.keys(HEART_TOOLS).sort(),Object.keys(CRYSTALS).sort(),'every driver has a Crystal Heart tool');
+assert(HEART_TOOLS.luna.period>HEART_TOOLS.howey.period,'Luna breathes slowly; Howey is quick and brave');
+assert.equal(startHeart('nobody',0),null);
+const peak=h=>h.start+h.period;
+let h=startHeart('luna',10);assert.equal(heartProgress(h,10),0);assert(Math.abs(heartProgress(h,peak(h))-1)<1e-9);
+assert.equal(pressHeart(h,peak(h)+.05),'perfect');assert.equal(pressHeart(h,peak(h)),null,'one press per setback');
+h=startHeart('howey',0);assert.equal(pressHeart(h,peak(h)-.18),'good');
+h=startHeart('howey',0);assert.equal(pressHeart(h,.3),'miss','pressing early is a gentle miss');
+h=startHeart('aida',0,{difficulty:'easy'});assert.equal(pressHeart(h,peak(h)+.28),'good','easy has a wider window');
+h=startHeart('aida',0,{difficulty:'hard'});assert.equal(pressHeart(h,peak(h)+.12),'good');
+h=startHeart('keen',0);assert(!heartExpired(h,peak(h)));assert(heartExpired(h,peak(h)+.3));
+assert.deepEqual(heartReward('miss'),{boost:0,restore:0},'missing costs nothing extra');assert(heartReward('perfect').boost>heartReward('good').boost);
+const ui=createHeartUI(undefined);ui.show();ui.update();ui.hide();
+console.log('Crystal Heart: nine canon tools, per-bear breathing pace, perfect/good/gentle-miss timing, difficulty windows and no-DOM safety passed.');
