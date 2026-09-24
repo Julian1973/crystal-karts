@@ -56,7 +56,7 @@ Line 3 (whoops-1): [surprised] Whoa — [giggles] ROCK!
 Line 4 (whoops-2): [curious] Oops... [cheerful] where'd THAT come from?
 Line 5 (laugh-1):  [excited] Whee! [giggles]
 Line 6 (laugh-2):  [giggles] Did you SEE that?
-Line 7 (cheer):    [breathes] [excited] New way — let's GO!
+Line 7 (cheer):    [breathes] [excited] Brave and BRIGHT!
 Line 8 (countdown):[excited] Three... two... one... [giggles] GO!
 ```
 
@@ -137,7 +137,7 @@ Line 3 (whoops-1): [surprised] Whoops — [calm] easy does it.
 Line 4 (whoops-2): [exhales] Oops. [determined] Turn AWAY.
 Line 5 (laugh-1):  [warm] [laughs] Good one.
 Line 6 (laugh-2):  [proud] [laughs] Coming THROUGH.
-Line 7 (cheer):    [breathes] [determined] Steady and BRAVE!
+Line 7 (cheer):    [breathes] [warm] Steady and KIND!
 Line 8 (countdown):[determined] Three. Two. One. [proud] GO.
 ```
 *Howey avoids [giggles] per his profile — his laugh is a short warm [laughs].*
@@ -203,10 +203,8 @@ Line 8 (countdown):[excited][fast-paced] Three! Two! One! [giggles] BUZZ-GO!
 - Short lines are hard for V3. If a take comes out flat, add a throwaway lead-in sentence
   before it in the same prompt and trim it off in the edit.
 
-## Open question for Julian
+## Canon used (confirmed by Julian)
 
-The two Crystal Bears reference skills disagree on some traits. The voice profiles (and
-the game) say Keen = courage, Amie = understanding, Howey = kindness; the daily pipeline
-rota says Keen = adaptability, Amie = joy, Howey = courage. The Crystal Heart tools were
-written from the pipeline rota (Keen "Try a new way", Amie "Find the silver lining").
-Tell me which is canon and I'll align the in-game tools and these lines.
+Keen = courage, Amie = joy, Howey = kindness. The Crystal Heart tools follow this:
+Keen "Be brave" → "Brave and bright!", Amie "Find the silver lining" → "Let's shine the light!",
+Howey "Be kind to yourself" → "Steady and kind!".

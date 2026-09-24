@@ -3,7 +3,7 @@
 import {RESONANCE_PAIRS} from './resonance.js?v=78';
 export const DAILY_TRACKS=Object.freeze(['wood','river','honey','moon','coast','night','rose','blossom','zen','cove','showcase']);
 // Room/character order: keen, aida, sunny, misty, amie, howey, luna, zenny, fuzzby.
-export const DAILY_BEARS=Object.freeze([['keen','Keen','Brave New Things'],['aida','Aida','Believe in Me'],['sunny','Sunny','Bright Side'],['misty','Misty','Kind Feelings'],['amie','Amie','Silver Lining'],['howey','Howey','Steady Courage'],['luna','Luna','Calm'],['zenny','Zenny','Shake It Off'],['fuzzby','Fuzzby','Bounce Back']]);
+export const DAILY_BEARS=Object.freeze([['keen','Keen','Brave Heart'],['aida','Aida','Believe in Me'],['sunny','Sunny','Bright Side'],['misty','Misty','Kind Feelings'],['amie','Amie','Silver Lining'],['howey','Howey','Kindness'],['luna','Luna','Calm'],['zenny','Zenny','Shake It Off'],['fuzzby','Fuzzby','Bounce Back']]);
 const nameOf=id=>DAILY_BEARS.find(b=>b[0]===id)?.[1]||'a friend';
 export const DAILY_GOALS=Object.freeze({
  podium:{text:()=>'Finish in the top 3',check:r=>r.rank<=3},

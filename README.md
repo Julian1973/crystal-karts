@@ -63,7 +63,7 @@ See `CLAUDE.md` and `docs/MIGRATION.md`.
 
 Built on top of the imported v77 game, each with its own tests:
 
-- **Crystal Heart** — after a spin-out, press Power/Space as your bear's ring glows to bounce back using their emotional tool (Luna breathes, Howey is brave…).
+- **Crystal Heart** — after a spin-out, press Power/Space as your bear's ring glows to bounce back using their emotional tool (Luna breathes, Keen is brave, Howey is kind to himself…).
 - **Crystal Resonance** — partner bears (Misty & Howey, Luna & Sunny, Aida & Amie, Zenny & Fuzzby; Keen with anyone) share a boost by racing side by side.
 - **Crystal Garden** — a two-minute crystal hunt on any course; spin-outs knock crystals loose, nobody is eliminated.
 - **Party mode** — phones scan a QR code in the online lobby and become controllers (`controller.html`); optional split-screen for up to four racers.

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {HEART_TOOLS,startHeart,pressHeart,heartExpired,heartProgress,heartReward,createHeartUI} from '../public/crystal-heart.js';
 import {CRYSTALS} from '../public/skills.js';
 assert.deepEqual(Object.keys(HEART_TOOLS).sort(),Object.keys(CRYSTALS).sort(),'every driver has a Crystal Heart tool');
-assert(HEART_TOOLS.luna.period>HEART_TOOLS.howey.period,'Luna breathes slowly; Howey is quick and brave');
+assert(HEART_TOOLS.luna.period>HEART_TOOLS.keen.period,'Luna breathes slowly; Keen is quick and brave');
 assert.equal(startHeart('nobody',0),null);
 const peak=h=>h.start+h.period;
 let h=startHeart('luna',10);assert.equal(heartProgress(h,10),0);assert(Math.abs(heartProgress(h,peak(h))-1)<1e-9);

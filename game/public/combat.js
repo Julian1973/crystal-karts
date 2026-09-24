@@ -1,5 +1,5 @@
 import {wrapDelta,ROCK} from './physics.js?v=75';
-import {skillEffects} from './skills.js?v=75';
+import {skillEffects} from './skills.js?v=78';
 export function launchCrystal(r,trackYaw,racers,length){
  if(racers){const others=racers.filter(x=>x.ci!==r.ci&&x.time===null);const ahead=others.filter(x=>x.s>r.s).sort((a,b)=>a.s-b.s);const target=ahead[0]||others.sort((a,b)=>Math.abs(wrapDelta(a.s-r.s,length))-Math.abs(wrapDelta(b.s-r.s,length)))[0];return {owner:r.ci,target:target?.ci,homing:true,s:r.s,lane:r.lane,route:r.route||0,life:30};}
  const angle=(r.manual?r.heading:trackYaw)-trackYaw;

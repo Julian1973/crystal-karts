@@ -3,11 +3,11 @@
 // Missing is never punished: the race simply carries on as before.
 export const HEART_TOOLS=Object.freeze({
  aida:{tool:'I’ve got this',prompt:'Say it: I’ve got this',affirmation:'I believe in me!',period:1},
- howey:{tool:'Be brave',prompt:'Be brave — tap on the flash',affirmation:'Steady and brave!',period:.8},
+ howey:{tool:'Be kind to yourself',prompt:'Be kind to yourself',affirmation:'Steady and kind!',period:1},
  misty:{tool:'Name the feeling',prompt:'Name the feeling, then let it go',affirmation:'I felt it, and I’m OK!',period:1.1},
  sunny:{tool:'Find the bright side',prompt:'Look for the bright side',affirmation:'Still sunny!',period:.9},
  luna:{tool:'Breathe',prompt:'Breathe in… and out',affirmation:'Calm and ready.',period:1.3},
- keen:{tool:'Try a new way',prompt:'Try a new way',affirmation:'New way — let’s go!',period:.9},
+ keen:{tool:'Be brave',prompt:'Be brave — tap on the flash',affirmation:'Brave and bright!',period:.8},
  amie:{tool:'Find the silver lining',prompt:'Find the silver lining',affirmation:'Let’s shine the light!',period:1},
  zenny:{tool:'Shake it off',prompt:'Shake it off',affirmation:'Buzz, back on track!',period:.9},
  fuzzby:{tool:'Bounce back',prompt:'Bounce back',affirmation:'Boing! Back again!',period:.9}
