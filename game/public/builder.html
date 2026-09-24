@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101d32">
+<title>Crystal Karts Track Builder</title>
+<style>
+:root{--bg:#101d32;--card:#1b2d4b;--ink:#fff;--muted:#b9c8e6;--gold:#ffd66e;--ok:#b9ff6b;--bad:#ff8fa3;--accent:#8ff4ff}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:14px 16px 24px;display:grid;gap:12px;grid-template-columns:minmax(0,1fr) 300px;align-items:start}
+header{grid-column:1/-1;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{margin:0;font-size:1.4rem;color:var(--gold)}
+a{color:var(--accent)}
+#map-wrap{position:relative;background:#1f3b2a;border-radius:18px;overflow:hidden;touch-action:none;aspect-ratio:1}
+canvas{display:block;width:100%;height:100%}
+aside{display:grid;gap:10px;background:var(--card);border-radius:18px;padding:14px}
+label{display:grid;gap:4px;font-weight:700}
+input,select,button{font:inherit;color:inherit}
+input[type=text],select{padding:10px;border-radius:10px;border:2px solid #34507f;background:#0f2038}
+input[type=range]{width:100%}
+.btn{border:0;border-radius:12px;padding:12px 14px;background:#2b4570;font-weight:800;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,#ffd66e,#ffb347);color:#3b2400;font-size:1.1rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#check{margin:0;padding:10px;border-radius:12px;background:#0f2038;font-weight:700}
+#check.ok{color:var(--ok)}#check.bad{color:var(--bad)}
+#check ul{margin:.3rem 0 0;padding-left:1.2rem;font-weight:600}
+.hint{margin:0;color:var(--muted);font-size:.92rem}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row .btn{flex:1}
+#share-status{min-height:1.2em;margin:0;color:var(--accent);font-weight:700}
+@media (max-width:760px){main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <header><h1>✦ Track Builder</h1><a href="./">← Back to Crystal Karts</a></header>
+  <div id="map-wrap"><canvas id="map" width="900" height="900" aria-label="Top-down track map. Drag the numbered points to shape your track."></canvas></div>
+  <aside>
+    <label>Track name<input type="text" id="name" maxlength="24" autocomplete="off"></label>
+    <label>World<select id="theme"></select></label>
+    <p class="hint">Drag the numbered crystals to shape your road. Tap the road to add a point. Pick a point to raise a hill.</p>
+    <label id="height-label">Hill height at point <span id="point-no">1</span><input type="range" id="height" min="0" max="24" step="1"></label>
+    <div class="row"><button class="btn" id="remove">Remove point</button><button class="btn" id="reset">Start again</button></div>
+    <div id="check" role="status" aria-live="polite"></div>
+    <button class="btn primary" id="race">Race it! ➜</button>
+    <button class="btn" id="share">Copy share link</button>
+    <p id="share-status" role="status"></p>
+  </aside>
+</main>
+<script type="module" src="builder.js?v=78"></script>
+</body>
+</html>
