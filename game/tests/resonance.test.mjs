@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {RESONANCE_PAIRS,RESONANCE,resonates,stepResonance,playerResonance} from '../public/resonance.js';
+import {CRYSTALS} from '../public/skills.js';
+const wrap=(d,L)=>((d+L/2)%L+L)%L-L/2;
+for(const id of Object.keys(CRYSTALS))assert(id==='keen'||RESONANCE_PAIRS[RESONANCE_PAIRS[id]]===id,id+' has a mutual partner');
+assert(resonates('misty','howey')&&resonates('keen','luna')&&!resonates('misty','luna')&&!resonates('keen','keen'));
+const racer=(ci,id,s,lane=0)=>({ci,id,s,lane,speed:30,time:null});
+let state={},misty=racer(0,'misty',100),howey=racer(1,'howey',105,2),luna=racer(2,'luna',103,-2),fired=[];
+for(let t=0;t<RESONANCE.charge-.05;t+=1/60)fired.push(...stepResonance(state,[misty,howey,luna],1/60,900,wrap));
+assert.equal(fired.length,0,'needs time side by side');assert(playerResonance(state,misty,[misty,howey,luna]).charge>.9);
+for(let t=0;t<.2;t+=1/60)fired.push(...stepResonance(state,[misty,howey,luna],1/60,900,wrap));
+assert.equal(fired.length,1);assert.deepEqual(fired[0].map(r=>r.id),['misty','howey']);assert(misty.boostTime>=RESONANCE.boost&&howey.boostTime>=RESONANCE.boost,'both partners are boosted');assert(!luna.boostTime,'non-partners are unaffected');
+for(let t=0;t<5;t+=1/60)assert.equal(stepResonance(state,[misty,howey],1/60,900,wrap).length,0,'cooldown');
+state={};const keen=racer(0,'keen',50),aida=racer(1,'aida',55);let n=0;for(let t=0;t<RESONANCE.charge+.2;t+=1/60)n+=stepResonance(state,[keen,aida],1/60,900,wrap).length;assert.equal(n,0,'Keen takes longer');for(let t=0;t<1.2;t+=1/60)n+=stepResonance(state,[keen,aida],1/60,900,wrap).length;assert.equal(n,1,'Keen resonates with anyone');
+state={};const a=racer(0,'aida',10),b=racer(1,'amie',40);for(let t=0;t<4;t+=1/60)assert.equal(stepResonance(state,[a,b],1/60,900,wrap).length,0,'too far apart');
+const c=racer(0,'aida',898),d=racer(1,'amie',3);let m=0;for(let t=0;t<3;t+=1/60)m+=stepResonance(state,[c,d],1/60,900,wrap).length;assert.equal(m,1,'works across the start line');
+const e=racer(0,'aida',100),f={...racer(1,'amie',102),time:61};state={};for(let t=0;t<4;t+=1/60)assert.equal(stepResonance(state,[e,f],1/60,900,wrap).length,0,'finished racers do not resonate');
+console.log('Crystal Resonance: bible pairs, Keen wildcard, side-by-side charge, shared boost, cooldown, range, start-line wrap and finished racers passed.');
