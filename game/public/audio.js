@@ -1,4 +1,4 @@
-import {Soundscape} from './soundscape.js?v=75';
+import {Soundscape} from './soundscape.js?v=78';
 import {preloadCountdownVoice,playCountdownClip} from './countdown-voice.js?v=75';
 // Music is the supplied Crystal Karting track. Effects are synthesised in-browser.
 export class RaceAudio {

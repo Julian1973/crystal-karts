@@ -11,7 +11,7 @@ const sound=new Soundscape(owner);sound.start();await new Promise(r=>setImmediat
 assert.equal(Object.keys(COURSE_AMBIENCE).length,11);assert.equal(sound.loops.size,7);
 sound.update({speed:35,throttle:true,wetness:1,player:{s:0,lane:0},bots:[{s:4,lane:5,speed:30}],length:900});
 assert(sound.loops.get('engine').src.playbackRate.value>1);assert(sound.loops.get('rain').gain.gain.value>0);assert(sound.loops.get('rival0').pan.pan.value<0);
-sound.reaction('missing');assert.equal(sound.oneShots.size,0,'no generic voice fallback');sound.buffers.set('laugh:keen',{});sound.reaction('keen');sound.reaction('keen');assert.equal(sound.oneShots.size,1,'reaction cooldown prevents chatter');
+sound.reaction('missing');assert.equal(sound.oneShots.size,0,'no generic voice fallback');sound.reactions={urls:{'laugh:keen:0':'k.mp3','ouch:aida:0':'a.mp3'},takes:{'laugh:keen':['laugh:keen:0'],'ouch:aida':['ouch:aida:0']}};sound.buffers.set('laugh:keen:0',{});sound.buffers.set('ouch:aida:0',{});sound.reaction('keen');sound.reaction('keen');assert.equal(sound.oneShots.size,1,'reaction cooldown prevents chatter');assert.equal(sound.reaction('aida','ouch',{reply:true}),true,'a different bear may answer straight away');assert.equal(sound.reaction('keen','laugh',{reply:true}),false,'only one reply per exchange');
 sound.stop();assert.equal(sound.loops.size,0);assert.equal(sound.oneShots.size,0);assert.equal(started,stopped);
 sound.start();sound.stop();await new Promise(r=>setImmediate(r));assert.equal(sound.loops.size,0,'late loading cannot restart paused sound');
 owner.sfxEnabled=false;sound.start();await new Promise(r=>setImmediate(r));assert.equal(sound.loops.size,0,'muted effects stay silent');

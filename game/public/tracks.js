@@ -17,6 +17,23 @@ Object.assign(TRACKS,{
 const owners={wood:'howey',river:'keen',honey:'fuzzby',moon:'misty',coast:'sunny',night:'luna'};
 TRACKS.showcase={name:'Crystal Bears Showcase',owner:'all',description:'Sunlit coastal woodland · bee cottages · crystal gardens',points:[[0,2,110],[75,3,105],[145,4,60],[150,5,-15],[115,4,-95],[40,3,-120],[-35,3,-110],[-115,4,-85],[-145,5,-15],[-130,4,65],[-65,2,115]]};
 for(const [id,owner] of Object.entries(owners))TRACKS[id].owner=owner;
+// Course layout shared with game.js (rocks, crystals, boost pads, secret shard) so jumps land on clear road.
+export const ROCK_LAYOUT=Object.freeze([.19,.34,.49,.67,.84]),PAD_LAYOUT=Object.freeze([.13,.39,.66,.87]);
+export const pickupLayout=count=>Array.from({length:count},(_,i)=>.055+i/count*.91);
+export const secretShardLayout=index=>.19+(index%7)*.085;
+// Up to two jumps per course on the straightest clear stretches, spread apart. Tracks with one clear stretch get one.
+export function chooseRamps(curve,length,routes=[],trackIndex=0,count=2){
+ const objects=[...ROCK_LAYOUT,...PAD_LAYOUT,...pickupLayout(9),secretShardLayout(trackIndex)].map(u=>u*length);
+ const blocked=[[0,.08*length],[.93*length,length],...routes.filter(Boolean).map(r=>[r.a-60,r.b+10])];
+ // Ground height plus the 1.6 ramp lip that frame() adds at take-off.
+ const groundAt=s=>curve.getPointAt((((s/length)%1)+1)%1).y;
+ // Same ballistic arc as jumpStep, flown at a fast boosted speed so every slower jump is covered too.
+ const landing=at=>{let y=groundAt(at)+1.6+1.7,v=7.8,s=at;for(let i=0;i<600;i++){s+=52/120;v-=18/120;y+=v/120;if(y<=groundAt(s)&&v<0)break;}return s;};
+ const yaw=s=>{const t=curve.getTangentAt((((s/length)%1)+1)%1);return Math.atan2(t.x,t.z)};const turn=(a,b)=>Math.abs(Math.atan2(Math.sin(b-a),Math.cos(b-a)));
+ const candidates=[];for(let at=.08*length;at<.93*length;at+=2){if(blocked.some(([a,b])=>at>=a&&at<=b))continue;const land=landing(at);if(land>.99*length||objects.some(o=>o>at-3&&o<land+6))continue;candidates.push({at,bend:turn(yaw(at-18),yaw(at))+turn(yaw(at),yaw(land))});}
+ candidates.sort((a,b)=>a.bend-b.bend);const chosen=[];for(const c of candidates){if(chosen.every(at=>Math.abs(at-c.at)>=.15*length))chosen.push(c.at);if(chosen.length===count)break;}
+ return chosen.sort((a,b)=>a-b).map(at=>at/length);
+}
 export function makeTrack(id){
  const config=TRACKS[id]||TRACKS.wood,curve=new CatmullRomCurve3(config.points.map(p=>new Vector3(...p)),true,'catmullrom',.35),length=curve.getLength();
  const makeShortcut=([a,b],i)=>{const start=curve.getPointAt(a),end=curve.getPointAt(b),distance=start.distanceTo(end),path=new CubicBezierCurve3(start,start.clone().addScaledVector(curve.getTangentAt(a),distance*.18),end.clone().addScaledVector(curve.getTangentAt(b),-distance*.18),end);return {id:i+1,a:a*length,b:b*length,path,ratio:(b-a)*length/path.getLength()}};
@@ -25,7 +42,7 @@ export function makeTrack(id){
  const shortcuts=sections.map(makeShortcut);
  const ra=.54,rb=.65,rs=curve.getPointAt(ra),re=curve.getPointAt(rb),rd=rs.distanceTo(re),rp=new CubicBezierCurve3(rs,rs.clone().addScaledVector(curve.getTangentAt(ra),rd*.22),re.clone().addScaledVector(curve.getTangentAt(rb),-rd*.22),re);
  const rushRoute={id:90,a:ra*length,b:rb*length,path:rp,ratio:(rb-ra)*length/rp.getLength()};
- const ramps=id==='river'?[.215*length,.62*length]:[];
+ const ramps=id==='river'?[.215*length,.62*length]:chooseRamps(curve,length,[...shortcuts,rushRoute],Object.keys(TRACKS).indexOf(id)).map(u=>u*length);
  function frame(s,lateral=0,route=0,target={p:new Vector3(),t:new Vector3(),right:new Vector3()}){const wrapped=(s%length+length)%length;let branch=null;for(const candidate of shortcuts){if(candidate.id===route&&wrapped>=candidate.a&&wrapped<=candidate.b){branch=candidate;break}}if(!branch&&rushRoute?.id===route&&wrapped>=rushRoute.a&&wrapped<=rushRoute.b)branch=rushRoute;const u=branch?(wrapped-branch.a)/(branch.b-branch.a):wrapped/length,path=branch?branch.path:curve,p=path.getPointAt(u,target.p),t=path.getTangentAt(u,target.t).normalize(),right=target.right.set(t.z,0,-t.x).normalize();p.addScaledVector(right,lateral);if(!branch)for(const ramp of ramps){const d=wrapped-ramp;if(d>=-8&&d<=0)p.y+=1.6*(1+d/8);else if(d>0&&d<6)p.y+=1.6*(1-d/6);}return target}
  return {id,...config,curve,length,shortcuts,rushRoute,ramps,frame};
 }

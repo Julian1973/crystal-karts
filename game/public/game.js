@@ -19,7 +19,7 @@ import {KART_STYLES,impactPenalty} from './kart-style.js?v=75';
 import {dressCourse} from './scenery.js?v=77';
 import {createWinnerVideo} from './winner-video.js?v=75';
 import {newCup,validCup,validCupId,scoreRound,standings,tourTracks,CUP_TRACKS,CUP_POINTS,CUPS} from './cup.js?v=75';
-import {TRACKS,makeTrack,routeStep,jumpStep} from './tracks.js?v=75';
+import {TRACKS,makeTrack,routeStep,jumpStep} from './tracks.js?v=78';
 import {loadProgress,saveProgress,SHOP,buy as buyItem,equip as equipItem,awardRace,dailyFor,completeDaily,awardShard,cupMedal} from './progression.js?v=75';
 import * as THREE from './assets/three.module.js?v=75';
 import {advance,advanceManual,syncManualContact,solveContacts,wrapDelta,findRecoverySpot,KART} from './physics.js?v=75';
@@ -29,7 +29,7 @@ import {launchCrystal,advanceShots} from './combat.js?v=75';
 import {ITEM_POWERS,selectItem,comebackBoost,crystalRollBoost,kartStats,slipstreaming} from './gameplay.js?v=75';
 import {loadDrivers,createDriver,animateDriver} from './models.js?v=75';
 import {RaceRoom} from './network.js?v=75';
-import {RaceAudio} from './audio.js?v=75';
+import {RaceAudio} from './audio.js?v=78';
 const audio=new RaceAudio();
 let countdownVoiceForRun=null,countdownVoiceGoAt=0;
 let difficulty=readDifficulty();
@@ -397,11 +397,11 @@ function physicsStep(dt){
   advance(b,dt,Math.min(plan.cap+(b.boostTime>0?10:0),(target+(effect.burst?13:effect.joy?4:effect.kindness?2:0)+(b.boostTime>0?9:0))*(1-weather.wetness*.12)*(b.leaderSlowTime>0?.84:1)),THREE.MathUtils.clamp((aiLane-b.lane)*tuning.steer*(b.id==='luna'?.9:1)+(b.slipTime>0?(b.slipSide||1)*2.5:0),-7,7),effect.joy?24:effect.kindness?21:tuning.acceleration*(1+(b.stats[1]-3)*.035),traction(weather,effect.calm)*(b.slipTime>0?.55:1));
  }
  for(const r of racers)if(r.spinTime>0){r.speed=(r.speed||0)*.998;r.driveSpeed=(r.driveSpeed||0)*.998;}
- for(const r of racers){const oldRoute=r.route,wasAirborne=r.airborne;routeStep(r,previousPositions.get(r),track);if(r===player&&runStats){if(!oldRoute&&r.route)runStats.enteredShortcut=true;if(oldRoute&&!r.route&&runStats.enteredShortcut){runStats.shortcut=true;runStats.enteredShortcut=false;}}jumpStep(r,previousPositions.get(r),dt,track);if(r===player&&!wasAirborne&&r.airborne&&drifting){r.trickBoosted=true;audio.effect('crystal');toast('Crystal trick!');}}
+ for(const r of racers){const oldRoute=r.route,wasAirborne=r.airborne;routeStep(r,previousPositions.get(r),track);if(r===player&&runStats){if(!oldRoute&&r.route)runStats.enteredShortcut=true;if(oldRoute&&!r.route&&runStats.enteredShortcut){runStats.shortcut=true;runStats.enteredShortcut=false;}}jumpStep(r,previousPositions.get(r),dt,track);if(r===player&&r.airborne&&!r.trickBoosted&&r.jumpV>-3&&(drifting||keys.has('ShiftLeft')||keys.has('ShiftRight')||Math.abs(dir)>.55)){r.trickBoosted=true;audio.effect('crystal');toast('Crystal trick! Land it for a boost');}}
  for(const puddle of honeyPuddles){if(elapsed>puddle.until){puddle.mesh.visible=false;puddle.active=false;continue}for(const r of racers){if(r.ci===puddle.owner||r.time!==null||r.route!==puddle.route||r.starTime>0)continue;if(Math.abs(wrapDelta(r.s-puddle.s,length))<2.2&&Math.abs(r.lane-puddle.lane)<2.2)r.honeyTime=1.15;}}
  for(const r of racers){const oldS=previousPositions.get(r),oldLap=Math.floor(oldS/length),newLap=Math.floor(r.s/length);for(const pad of scenery.boostPads||[]){for(let lap=oldLap;lap<=newLap;lap++){const at=lap*length+pad.s;if(oldS<at&&r.s>=at&&Math.abs(r.lane-pad.lane)<3.4&&!r.airborne){r.padLap??=Object.create(null);if(r.padLap[pad.index]!==lap){r.padLap[pad.index]=lap;r.boostTime=Math.max(r.boostTime||0,1.25);if(r===player){boostTime=Math.max(boostTime,1.25);toast('Crystal boost pad!');audio.effect('boost');triggerBigMoment(0x8ff4ff)}r.kart.cheerUntil=elapsed+.7;}}}}}
  for(const r of racers){r.phasing=skillEffects(r).phase||skillEffects(r).star;if(r.pendingShot){r.pendingShot=false;const f=racerFrame(r);const shot=launchCrystal(r,Math.atan2(f.t.x,f.t.z),racers,length);shots.push(shot);if(r===player)audio.effect('shot');}}
- shots=advanceShots(shots,racers,hazards,dt,length,(r,shield,owner)=>{const at=racerFrame(r,r.s,r.lane).p;at.y+=1;for(let i=0;i<8;i++){const v=at.clone();v.x+=(Math.random()-.5)*2;v.z+=(Math.random()-.5)*2;puff(v,shield?0xffa5d0:0xac6bed)}if(r===player){if(!shield&&!skillEffects(r).star)raceHighlight.trigger((characters[owner]?.name||'A rival')+' sent you spinning!');toast(shield?'Shield blocked the crystal!':'Crystal hit! Spin-out!');audio.effect('shot');if(!shield&&!skillEffects(r).star)audio.soundscape?.reaction(characters[player.ci].id,'ouch')}else if(owner===player.ci){toast(shield?'Their shield caught it!':'Direct hit! Crystal spin-out!');audio.effect('crystal');audio.soundscape?.reaction(characters[owner]?.id)}});
+ shots=advanceShots(shots,racers,hazards,dt,length,(r,shield,owner)=>{const at=racerFrame(r,r.s,r.lane).p;at.y+=1;for(let i=0;i<8;i++){const v=at.clone();v.x+=(Math.random()-.5)*2;v.z+=(Math.random()-.5)*2;puff(v,shield?0xffa5d0:0xac6bed)}if(r===player){if(!shield&&!skillEffects(r).star)raceHighlight.trigger((characters[owner]?.name||'A rival')+' sent you spinning!');toast(shield?'Shield blocked the crystal!':'Crystal hit! Spin-out!');audio.effect('shot');if(!shield&&!skillEffects(r).star){audio.soundscape?.reaction(characters[player.ci].id,'ouch');if(characters[owner])audio.soundscape?.reaction(characters[owner].id,'laugh',{reply:true,chance:.45,delay:.8})}}else if(owner===player.ci){toast(shield?'Their shield caught it!':'Direct hit! Crystal spin-out!');audio.effect('crystal');audio.soundscape?.reaction(characters[owner]?.id);if(!shield)audio.soundscape?.reaction(characters[r.ci]?.id,'ouch',{reply:true,chance:.5,delay:.8})}});
  solveContacts(racers,hazards,length,(r,kind,speed,instigator)=>{
   impactPenalty(r,kind,speed,skillEffects(r).shield||skillEffects(r).star);
   if(r!==player)return;
