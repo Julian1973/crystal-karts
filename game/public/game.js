@@ -12,7 +12,7 @@ import {recoverStalledRival,driftTier,driftBoost,rivalPlan,racingLineLane,corner
 import {createTrialUI,trialAPI} from './trial-ui.js?v=75';
 import {createWinnerStage} from './winner-stage.js?v=75';
 import {createQualityGovernor} from './mobile-quality.js?v=75';
-import {createMobileControls} from './mobile-controls.js?v=75';
+import {createMobileControls} from './mobile-controls.js?v=78';
 import {createFilmLook,roundedBox} from './film-look.js?v=75';
 import {updateProgress,displayedLap} from './race-progress.js?v=75';
 import {KART_STYLES,impactPenalty} from './kart-style.js?v=75';
@@ -38,6 +38,8 @@ import {decodeTrack,encodeTrack} from './custom-track.js?v=78';
 import qrcode from './assets/utils/qrcode.mjs?v=78';
 import {GARDEN,createGarden,stepGarden,dropGems,nearestGem,gardenRanking,gardenScore,gardenTimeLeft} from './garden.js?v=78';
 const audio=new RaceAudio();
+// Phones feel boosts, hits and crystals as a short vibration (Controls → Vibration).
+{const effect=audio.effect.bind(audio);audio.effect=(name,...args)=>{try{mobile.buzz(name)}catch{}return effect(name,...args)};}
 let countdownVoiceForRun=null,countdownVoiceGoAt=0;
 let heart=null;const heartUI=createHeartUI();
 let resonanceState={},resonanceHinted=false,resonanceBeam=null;
@@ -396,7 +398,7 @@ function physicsStep(dt){
  if(player.rocketEarly){player.rocketReady=false;player.stun=Math.max(player.stun||0,.32);player.spinTime=.32;player.spinDuration=.32;player.rocketEarly=false;toast('Wait for GO!');audio.effect('kart',.35);}
  if(player.rocketReady&&performance.now()<=player.rocketReadyUntil&&throttle){boostTime=Math.max(boostTime,1.35);player.boostTime=Math.max(player.boostTime||0,1.35);audio.effect('boost');triggerBigMoment(characters[player.ci].color);puff(racerFrame(player).p,characters[player.ci].color);player.rocketReady=false;}else if(player.rocketReady&&performance.now()>player.rocketReadyUntil)player.rocketReady=false;
 
- const drifting=throttle&&(keys.has('ShiftLeft')||keys.has('ShiftRight')||(mobileDevice&&Math.abs(dir)>.55))&&dir!==0&&player.driveSpeed>14;
+ const drifting=throttle&&(keys.has('ShiftLeft')||keys.has('ShiftRight')||(mobileDevice&&mobile.driftAssist({steer:dir,throttle,speed:player.driveSpeed,dt})))&&dir!==0&&player.driveSpeed>14;
  const braking=player.time===null&&input.brake;if(player.time!==null){player.driveSpeed=player.speed=player.lateralSpeed=0;}
  if(!throttle||braking)boostTime=0;
  if(drifting){const oldTier=driftTier(driftCharge);driftCharge=Math.min(3.2,driftCharge+dt);if(driftTier(driftCharge)>oldTier)tone(driftTier(driftCharge)===3?1400:driftTier(driftCharge)===2?1100:800,.1);}
@@ -505,7 +507,7 @@ function applySnapshot(s){
  if(s.mode==='results'&&mode!=='results')finish();
  networkReady=true;updatePowerVisuals();updateWeatherVisuals();updateHUD();
 }
-function localInput(){const motion=mobile.read(),blocked=motion.blocked||mode==='paused'||!$('online-screen').classList.contains('hidden');if(blocked)return {throttle:false,brake:false,left:false,right:false,drift:false,tiltSteer:0,skill:remoteSkill,recover:remoteRecover};const brake=motion.brake||keys.has('KeyS')||keys.has('ArrowDown');return {throttle:!brake&&(motion.throttle||keys.has('KeyW')||keys.has('ArrowUp')),brake,left:motion.steer<-.12||keys.has('KeyA')||keys.has('ArrowLeft'),right:motion.steer>.12||keys.has('KeyD')||keys.has('ArrowRight'),tiltSteer:motion.steer,drift:keys.has('ShiftLeft')||keys.has('ShiftRight'),skill:remoteSkill,recover:remoteRecover};}
+function localInput(){const motion=mobile.read(),blocked=motion.blocked||mode==='paused'||!$('online-screen').classList.contains('hidden');if(blocked)return {throttle:false,brake:false,left:false,right:false,drift:false,tiltSteer:0,skill:remoteSkill,recover:remoteRecover};const brake=motion.brake||keys.has('KeyS')||keys.has('ArrowDown');return {throttle:!brake&&(motion.throttle||(motion.autoDrive&&mode==='racing')||keys.has('KeyW')||keys.has('ArrowUp')),brake,left:motion.steer<-.12||keys.has('KeyA')||keys.has('ArrowLeft'),right:motion.steer>.12||keys.has('KeyD')||keys.has('ArrowRight'),tiltSteer:motion.steer,drift:keys.has('ShiftLeft')||keys.has('ShiftRight'),skill:remoteSkill,recover:remoteRecover};}
 function showLobby(state){
  $('room-entry').classList.add('hidden');$('room-lobby').classList.remove('hidden');$('room-code-display').textContent=room.code;
  $('room-members').innerHTML=state.members.map(m=>`<div><img src="assets/${characters[m.bear].id}.png" alt=""><strong>${characters[m.bear].name}${m.bear===selected?' · You':''}</strong><span>${m.host?'Host · ':''}${!m.connected?'Disconnected':m.ready?'Ready':'Choosing'}</span></div>`).join('');

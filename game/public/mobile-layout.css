@@ -141,3 +141,30 @@ body.racing #map{display:block;width:112px;height:89px}
 body.racing .map-wrap>span{display:block!important;font-size:14px!important;line-height:20px;letter-spacing:0!important;color:#c5ff80;white-space:nowrap;font-weight:800}
 @media(max-width:600px){body.racing .map-wrap{width:110px}body.racing #map{width:98px;height:78px}}
 @media(max-height:420px){body.racing .map-wrap{width:106px;padding:3px!important}body.racing #map{width:98px;height:72px}body.racing .map-wrap>span{font-size:14px!important;line-height:18px}}
+
+/* Phone controls v78: floating thumb stick, right-hand drift, auto-drive, settings, no accidental zoom. */
+body.racing{touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+body.racing canvas{touch-action:none}
+#steer-zone{display:none}
+body.mobile-device.racing:not(.tilt-mode) #steer-zone{display:block;position:fixed;left:0;bottom:0;width:46vw;height:58vh;pointer-events:auto;touch-action:none;background:transparent}
+body.mobile-device.racing #thumb-steer{pointer-events:none;transition:left .12s ease-out,bottom .12s ease-out,opacity .2s}
+body.mobile-device.racing #thumb-steer.floating{transition:none;opacity:.95;box-shadow:0 0 0 3px #c9ff9666,0 4px 0 #072733}
+body.mobile-device.racing:not(.tilt-mode) #thumb-steer:not(.floating){opacity:.8}
+body.mobile-device.racing .touch-controls button[data-key="ShiftLeft"]{left:auto;right:0;bottom:104px;width:122px;min-width:122px!important;height:52px!important;font-weight:800;background:#1d5d74e6!important;border:2px solid #9fe8ff}
+body.mobile-device.racing.tilt-mode .touch-controls button[data-key="ShiftLeft"]{left:auto;right:0}
+body.mobile-device.racing .power-panel{bottom:164px!important}
+body.mobile-device.racing.auto-drive .touch-controls .accelerator{background:#dfffc0!important;opacity:.85}
+body.mobile-device.racing.auto-drive .touch-controls .accelerator span:last-child::after{content:'AUTO';display:block;font-size:12px;letter-spacing:.12em}
+#touch-options{display:grid;gap:6px;margin:10px 0;padding:10px 12px;border-radius:16px;background:#0c2833}
+#touch-options label{display:flex;gap:10px;align-items:center;font-size:16px;min-height:40px}
+#touch-options input[type=checkbox]{width:24px;height:24px;accent-color:#b6ff69}
+#touch-options small{opacity:.75;font-size:13px}
+.steer-feel{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.steer-feel span{font-weight:700;margin-right:4px}
+#mobile-settings .steer-feel button{margin:0;min-height:44px;background:#1b4a5c;color:#fff;border:2px solid transparent;border-radius:12px}
+#mobile-settings .steer-feel button[aria-pressed="true"]{background:#b6ff69;color:#153622;font-weight:800}
+body.tilt-mode #touch-options .steer-feel{display:none}
+#touch-options label{flex-wrap:wrap;row-gap:0}
+#touch-options small{flex-basis:100%;margin-left:34px;margin-top:-4px}
+.steer-feel span{flex-basis:100%}
+#mobile-settings .steer-feel button{flex:1;min-width:0}
