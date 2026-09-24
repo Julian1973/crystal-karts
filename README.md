@@ -80,3 +80,7 @@ npm test        # full test suite
 ```
 
 Phones on the same Wi-Fi can join Party mode at `http://<your-computer-ip>:8787`.
+
+## Hosting
+
+Production hosting is moving to **Vercel + Turso**. Setup steps: [`docs/VERCEL.md`](docs/VERCEL.md).
